@@ -1,70 +1,53 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber';
+import Wheel from './Wheel';
+import { useKeyControls } from './useKeyControls'; 
+import { useBox } from '@react-three/cannon';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
 
-const moveSpeed = 0.1; // 움직임 속도 조절
 
 export default function Car() {
   const { nodes, materials } = useGLTF(`${env.PUBLIC_URL}/assets/lowpoly_car.glb`)
 
-  const carRef = useRef();
-  const speed = 0.1;
-  const keys = { ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false };
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      keys[event.key] = true;
-    };
-
-    const handleKeyUp = (event) => {
-      keys[event.key] = false;
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
-    };
-  }, []);
+  const [carRef, api] = useBox(() => ({ mass: 1.5, args: [2, 2, 2]}));
+  const { forward, backward, left, right } = useKeyControls();
 
   useFrame(() => {
-    const car = carRef.current;
+    const force = [0, 0, 0];
+    const direction = [0, 0, 0];
 
-    if (keys.ArrowUp) {
-      car.position.z -= speed;
-    }
-    if (keys.ArrowDown) {
-      car.position.z += speed;
-    }
-    if (keys.ArrowLeft) {
-      car.rotation.y += 0.01;
-    }
-    if (keys.ArrowRight) {
-      car.rotation.y -= 0.01;
-    }
+    if (forward) force[2] -= 20;
+    if (backward) force[2] += 20;
+    if (left) direction[1] += Math.PI / 16;
+    if (right) direction[1] -= Math.PI / 16;
+
+    api.applyForce(force, [0, 0, 0]);
+    api.applyTorque(direction);
   });
 
   return (
     <group ref={carRef}>
-      <group position={[0.013, 0.007, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <group position={[0.013, 1, 0]} rotation={[-Math.PI / 2, 0, 2]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
+          {/* 앞 오른쪽 */}
           <group position={[1.545, -0.788, 1.03]} rotation={[Math.PI / 2, -0.053, 0]} scale={[0.267, 1.023, 0.267]}>
             <mesh geometry={nodes.Object_10.geometry} material={materials.Tyre} />
             <mesh geometry={nodes.Object_11.geometry} material={materials['Silver.001']} />
           </group>
+          {/* 뒤 오른쪽 */}
           <group position={[-0.642, -0.791, 1.03]} rotation={[Math.PI / 2, -0.053, 0]} scale={[0.275, 1.055, 0.275]}>
             <mesh geometry={nodes.Object_13.geometry} material={materials.Tyre} />
             <mesh geometry={nodes.Object_14.geometry} material={materials['Silver.001']} />
           </group>
+          {/* 앞 왼쪽 */}
           <group position={[1.545, -0.788, -1.03]} rotation={[Math.PI / 2, -0.053, Math.PI]} scale={[0.267, 1.023, 0.267]}>
-            <mesh geometry={nodes.Object_16.geometry} material={materials.Tyre} />
-            <mesh geometry={nodes.Object_17.geometry} material={materials['Silver.001']} />
+              <mesh geometry={nodes.Object_16.geometry} material={materials.Tyre} />
+              <mesh geometry={nodes.Object_17.geometry} material={materials['Silver.001']} />
           </group>
+          {/* 뒤 왼쪽 */}
           <group position={[-0.642, -0.791, -1.03]} rotation={[Math.PI / 2, -0.053, Math.PI]} scale={[0.275, 1.055, 0.275]}>
             <mesh geometry={nodes.Object_19.geometry} material={materials.Tyre} />
             <mesh geometry={nodes.Object_20.geometry} material={materials['Silver.001']} />
