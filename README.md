@@ -1,3 +1,3 @@
-gltf-pipeline -i lowpoly_car.glb -o lowpoly_car.glb -d
+gltf-pipeline -i car.glb -o car.glb -d
 
-npx gltfjsx owpoly_car.glb
+npx gltfjsx car.glb

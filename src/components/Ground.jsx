@@ -1,7 +1,7 @@
 import { usePlane } from "@react-three/cannon";
-import { MeshReflectorMaterial } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import { ColliderBox } from "./ColliderBox";
+import { DummyBox } from "./DummyBox";
 
 export function Ground() {
   const [ref] = usePlane(
@@ -22,6 +22,10 @@ export function Ground() {
           color={0xFFFF00}
         />
       </mesh>
+      <ColliderBox position={[1.75, 0, 0.5]} scale={[0.3, 1, 0.3]}/>
+      <ColliderBox position={[0, 0, 0]} scale={[0.3, 1, 0.3]}/>
+      <ColliderBox position={[-1.75, 0, 0]} scale={[1, 1, 0.3]}/>
+      <DummyBox position={[-0.75, 0, 2]} scale={[0.2, 0.2, 0.2]} />
     </>
   );
 }

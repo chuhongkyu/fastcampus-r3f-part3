@@ -1,15 +1,13 @@
 import { useBox, useRaycastVehicle } from "@react-three/cannon";
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useLoader } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useControls } from "./useControls";
-import { useWheels } from "./useWheels";
-import { WheelDebug } from "./WheelDebug";
+import { useWheels } from "./utils/useWheels";
+import { useControls } from "./utils/useControls";
+import { WheelDebug } from "./components/WheelDebug";
 
 export function Car() {
-  // thanks to the_86_guy!
-  // https://sketchfab.com/3d-models/low-poly-car-muscle-car-2-ac23acdb0bd54ab38ea72008f3312861
-  let mesh = useLoader(
+  let result = useLoader(
     GLTFLoader,
     process.env.PUBLIC_URL + "/assets/models/car.glb"
   ).scene;
@@ -44,16 +42,23 @@ export function Car() {
   useControls(vehicleApi, chassisApi);
 
   useEffect(() => {
-    mesh.scale.set(0.0012, 0.0012, 0.0012);
-    mesh.children[0].position.set(-365, -18, -67);
-  }, [mesh]);
+    if (!result) return;
+
+    let mesh = result;
+    mesh.scale.set(0.1, 0.1, 0.12);
+    mesh.children[0].rotation.set(0, -Math.PI/2, 0);
+    mesh.children[0].position.set(0, 1, -0.5);
+  }, [result]);
 
   return (
     <group ref={vehicle} name="vehicle">
-      <mesh ref={chassisBody}>
+      {/* <mesh ref={chassisBody}>
         <meshBasicMaterial color="#1DDB16" transparent={true} opacity={1} />
         <boxGeometry args={chassisBodyArgs} />
-      </mesh>
+      </mesh> */}
+      <group ref={chassisBody} name="chassisBody">
+        <primitive object={result} rotation-y={Math.PI} position={[0, -0.09, 0]}/>
+      </group>
 
       <WheelDebug wheelRef={wheels[0]} radius={wheelRadius} />
       <WheelDebug wheelRef={wheels[1]} radius={wheelRadius} />
