@@ -50,9 +50,8 @@ export function Car() {
 
   return (
     <group ref={vehicle} name="vehicle">
-      {/* <primitive object={result} rotation-y={Math.PI} position={[0, -0.09, 0]}/> */}
       <mesh ref={chassisBody}>
-        <meshBasicMaterial transparent={true} opacity={0.3} />
+        <meshBasicMaterial color="#1DDB16" transparent={true} opacity={1} />
         <boxGeometry args={chassisBodyArgs} />
       </mesh>
 
