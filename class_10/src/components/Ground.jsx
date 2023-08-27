@@ -2,8 +2,6 @@ import { usePlane } from "@react-three/cannon";
 import { useRef } from "react";
 import { ColliderBox } from "./ColliderBox";
 import { DummyBox } from "./DummyBox";
-import { Rock } from "./Rock";
-import { Tree } from "./Tree";
 
 export function Ground() {
   const [ref] = usePlane(
@@ -33,12 +31,7 @@ export function Ground() {
       {/* 우 */}
       <ColliderBox position={[-3.5, 0.5, 0]} scale={[0.3, 1, 10]}/>
       <DummyBox position={[-0.75, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
-      <Rock position={[0, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
-      <Rock position={[-0.2, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
-      <Rock position={[-0.4, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
-      <Rock position={[-0.6, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
       <DummyBox position={[0.75, 0.5, -2]} scale={[0.2, 0.2, 0.2]} />
-
       <DummyBox position={[1, 0.5, 3]} scale={[0.2, 0.2, 0.2]} />
     </>
   );
