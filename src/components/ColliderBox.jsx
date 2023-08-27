@@ -1,21 +1,22 @@
 import { useBox } from "@react-three/cannon";
+import { useGLTF } from "@react-three/drei";
 
 const debug = true;
 
 export function ColliderBox({ position, scale }) {
-  useBox(() => ({
+  const [ref] = useBox(() => ({
     args: scale,
     position,
     type: "Static",
     mass: 1,
   }));
 
-  return (
-    debug && (
-      <mesh position={position}>
+  if(debug){
+    return(
+      <mesh ref={ref} position={position} castShadow>
         <boxGeometry args={scale} />
-        <meshBasicMaterial color="#1DDB16" opacity={0.25} />
+        <meshBasicMaterial color="#1DDB16" opacity={1} />
       </mesh>
     )
-  );
+  }
 }

@@ -14,18 +14,16 @@ export function Ground() {
 
   return (
     <>
-      <mesh ref={ref}>
+      {/* <mesh ref={ref} receiveShadow>
         <planeGeometry args={[24, 24]} />
         <meshBasicMaterial
           opacity={1}
           transparent={true}
           color={0xFFFF00}
         />
-      </mesh>
-      <ColliderBox position={[1.75, 0, 0.5]} scale={[0.3, 1, 0.3]}/>
-      <ColliderBox position={[0, 0, 0]} scale={[0.3, 1, 0.3]}/>
-      <ColliderBox position={[-1.75, 0, 0]} scale={[1, 1, 0.3]}/>
-      <DummyBox position={[-0.75, 0, 2]} scale={[0.2, 0.2, 0.2]} />
+      </mesh> */}
+      <ColliderBox position={[1.75, 0.5, 0.5]} scale={[0.3, 1, 1]}/>
+      <DummyBox position={[-0.75, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
     </>
   );
 }
