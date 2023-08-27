@@ -14,7 +14,7 @@ export function Scene() {
     <Suspense fallback={null}>
       {/* <Perf position="top-left" /> */}
       <Environment preset="city"/>
-      {/* <directionalLight intensity={6} castShadow /> */}
+      <directionalLight intensity={6} />
       <PerspectiveCamera
           makeDefault 
           rotation={[-0.5, 0, 0]}

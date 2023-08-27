@@ -11,7 +11,7 @@ import { Wheel } from "./components/Wheel";
 export function Car() {
   let result = useLoader(
     GLTFLoader,
-    process.env.PUBLIC_URL + "/assets/models/car.glb",
+    process.env.PUBLIC_URL + "/assets/models/body.glb",
   ).scene;
   
   const position = [0, 0.5, 0];
@@ -48,13 +48,13 @@ export function Car() {
     if (!result) return;
 
     let mesh = result;
-    mesh.scale.set(0.1, 0.1, 0.12);
+    mesh.scale.set(0.1, 0.13, 0.14);
     mesh.children[0].rotation.set(0, -Math.PI/2, 0);
-    mesh.children[0].position.set(0, 0.5, -0.5);
+    mesh.children[0].position.set(0, 1, -0.5);
   }, [result]);
 
   useFrame((state) =>{
-    let position = new Vector3(0,0,0);
+    let position = new Vector3(0,0.5,10);
     position.setFromMatrixPosition(chassisBody.current.matrixWorld);
     state.camera.lookAt(position);
   })
