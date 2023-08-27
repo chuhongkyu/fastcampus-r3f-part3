@@ -1,5 +1,4 @@
 import { useBox } from "@react-three/cannon";
-import { useGLTF } from "@react-three/drei";
 
 const debug = true;
 
