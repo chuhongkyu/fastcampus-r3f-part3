@@ -11,7 +11,7 @@ import { Wheel } from "./components/Wheel";
 export function Car() {
   let result = useLoader(
     GLTFLoader,
-    process.env.PUBLIC_URL + "/assets/models/car.glb"
+    process.env.PUBLIC_URL + "/assets/models/car.glb",
   ).scene;
   
   const position = [0, 0.5, 0];
@@ -66,8 +66,8 @@ export function Car() {
             <meshBasicMaterial color="#1DDB16" transparent={true} opacity={1} />
             <boxGeometry args={chassisBodyArgs} />
           </mesh> */}
-          <group ref={chassisBody} name="chassisBody" castShadow>
-            <primitive object={result} rotation-y={Math.PI} position={[0, -0.09, 0]}/>
+          <group ref={chassisBody} name="chassisBody">
+            <primitive object={result} rotation-y={Math.PI} position={[0, -0.08, 0]}/>
           </group>
           <Wheel wheelRef={wheels[0]}/>
           <Wheel wheelRef={wheels[1]}/>

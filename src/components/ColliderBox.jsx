@@ -13,7 +13,7 @@ export function ColliderBox({ position, scale }) {
 
   if(debug){
     return(
-      <mesh ref={ref} position={position} castShadow>
+      <mesh ref={ref} position={position}>
         <boxGeometry args={scale} />
         <meshBasicMaterial color="#1DDB16" opacity={1} />
       </mesh>

@@ -8,11 +8,13 @@ import {
 import { Suspense } from "react";
 import { Ground } from "./components/Ground";
 import { Car } from "./Car";
+import { Perf } from "r3f-perf";
 
 export function Scene() {
 
   return (
     <Suspense fallback={null}>
+      <Perf position="top-left" />
       <Environment preset="city"/>
       {/* <directionalLight intensity={6} castShadow /> */}
       <PerspectiveCamera
@@ -22,17 +24,8 @@ export function Scene() {
           fov={15} 
         />
       <OrbitControls target={[0,0.5,0]}/>
-      <AccumulativeShadows 
-        temporal 
-        frames={100} 
-        color="white" 
-        colorBlend={2} 
-        toneMapped={true} 
-        alphaTest={0.9} opacity={0.5} scale={10}>
-        <RandomizedLight amount={8} radius={4} ambient={0.5} intensity={1} position={[-5, 10, 10]} bias={0.001} />
-      </AccumulativeShadows>
       <Ground />
-      <Car/>
+      <Car />
     </Suspense>
   );
 }

@@ -13,7 +13,7 @@ export const useWheels = (width, height, front, radius) => {
     frictionSlip: 5,
     dampingRelaxation: 2.3,
     dampingCompression: 4.4,
-    maxSuspensionForce: 100000,
+    maxSuspensionForce: 1000,
     rollInfluence: 0.01,
     maxSuspensionTravel: 0.1,
     customSlidingRotationalSpeed: -30,
@@ -45,7 +45,7 @@ export const useWheels = (width, height, front, radius) => {
 
   const propsFunc = () => ({
     collisionFilterGroup: 0,
-    mass: 1,
+    mass: 2,
     shapes: [
       {
         args: [wheelInfo.radius, wheelInfo.radius, 0.015, 16],
