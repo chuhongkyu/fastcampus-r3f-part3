@@ -2,7 +2,6 @@ import { usePlane } from "@react-three/cannon";
 import { useRef } from "react";
 import { ColliderBox } from "./ColliderBox";
 import { DummyBox } from "./DummyBox";
-import { Tree } from "./Tree";
 
 export function Ground() {
   const [ref] = usePlane(
@@ -23,7 +22,7 @@ export function Ground() {
           color={0xFFFF00}
         />
       </mesh> */}
-      {/* <Tree /> */}
+
       {/* 앞 */}
       <ColliderBox position={[0, 0.5, 5]} scale={[7, 1, 0.3]}/>
       {/* 뒤 */}

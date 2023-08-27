@@ -1,9 +1,7 @@
 import {
-  AccumulativeShadows,
   Environment,
   OrbitControls,
   PerspectiveCamera,
-  RandomizedLight,
 } from "@react-three/drei";
 import { Suspense } from "react";
 import { Ground } from "./components/Ground";
@@ -14,7 +12,7 @@ export function Scene() {
 
   return (
     <Suspense fallback={null}>
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
       <Environment preset="city"/>
       {/* <directionalLight intensity={6} castShadow /> */}
       <PerspectiveCamera
