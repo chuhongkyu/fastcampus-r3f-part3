@@ -1,4 +1,4 @@
 #fast campus
 
 
-npx gltfjsx car.glb
+npx gltfjsx tree1.glb

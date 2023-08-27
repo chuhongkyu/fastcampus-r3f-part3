@@ -23,9 +23,20 @@ export function Ground() {
           color={0xFFFF00}
         />
       </mesh> */}
-      {/* <Tree position={[1.75, 2, 0.5]} scale={[1, 1, 1]} rotation={[-Math.PI/2,0,0]}/> */}
-      <ColliderBox position={[1.75, 0.5, 0.5]} scale={[0.3, 1, 1]}/>
+      {/* <Tree /> */}
+      {/* 앞 */}
+      <ColliderBox position={[0, 0.5, 5]} scale={[7, 1, 0.3]}/>
+      {/* 뒤 */}
+      <ColliderBox position={[0, 0.5, -5]} scale={[7, 1, 0.3]}/>
+      {/* 좌 */}
+      <ColliderBox position={[3.5, 0.5, 0]} scale={[0.3, 1, 10]}/>
+      {/* 우 */}
+      <ColliderBox position={[-3.5, 0.5, 0]} scale={[0.3, 1, 10]}/>
       <DummyBox position={[-0.75, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
+
+      <DummyBox position={[0.75, 0.5, -2]} scale={[0.2, 0.2, 0.2]} />
+
+      <DummyBox position={[1, 0.5, 3]} scale={[0.2, 0.2, 0.2]} />
     </>
   );
 }

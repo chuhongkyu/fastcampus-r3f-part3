@@ -50,7 +50,7 @@ export function Car() {
     let mesh = result;
     mesh.scale.set(0.1, 0.1, 0.12);
     mesh.children[0].rotation.set(0, -Math.PI/2, 0);
-    mesh.children[0].position.set(0, 1, -0.5);
+    mesh.children[0].position.set(0, 0.5, -0.5);
   }, [result]);
 
   useFrame((state) =>{

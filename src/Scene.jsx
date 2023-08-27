@@ -23,7 +23,7 @@ export function Scene() {
           position={[0, 5.5, 10]} 
           fov={15} 
         />
-      <OrbitControls target={[0,0.5,0]}/>
+      <OrbitControls enableZoom={false} enableRotate={false} target={[0,0.5,0]}/>
       <Ground />
       <Car />
     </Suspense>

@@ -15,7 +15,14 @@ export function ColliderBox({ position, scale }) {
     return(
       <mesh ref={ref} position={position}>
         <boxGeometry args={scale} />
-        <meshBasicMaterial color="#1DDB16" opacity={1} />
+        <meshBasicMaterial color="#1DDB16" opacity={0.8} />
+      </mesh>
+    )
+  }else{
+    return(
+      <mesh ref={ref} position={position}>
+          <boxGeometry args={scale} />
+          <meshBasicMaterial transparent={true} opacity={1} />
       </mesh>
     )
   }
