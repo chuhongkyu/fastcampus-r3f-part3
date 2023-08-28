@@ -1,8 +1,9 @@
 import { usePlane } from "@react-three/cannon";
 import { useRef } from "react";
-import { Tile } from "./ Tile";
+import { Tile } from "./Tile";
 import { ColliderBox } from "./ColliderBox";
 import { DummyBox } from "./DummyBox";
+import { Tree } from "./Tree";
 
 export function Ground() {
   const [ref] = usePlane(
@@ -23,6 +24,7 @@ export function Ground() {
           transparent={true}
         />
       </mesh>
+      <Tree position={[-1.3,0,-0.7]} scale={[1,1,1]} />
       <Tile position={[0,0,0]} scale={[0.2,0.01,0.2]}/>
       <Tile position={[-2,-1,0]} scale={[0.2,0.01,0.2]}/>
       {/* 앞 */}

@@ -77,9 +77,9 @@ export function Car() {
           receiveShadow/>
           </group>
           <Wheel wheelRef={wheels[0]}/>
-          <Wheel wheelRef={wheels[1]}/>
+          <Wheel wheelRef={wheels[1]} lefSide={true}/>
           <Wheel wheelRef={wheels[2]}/>
-          <Wheel wheelRef={wheels[3]}/>
+          <Wheel wheelRef={wheels[3]} lefSide={true}/>
         </group>
     </>
   );
