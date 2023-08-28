@@ -52,17 +52,29 @@ export function Car() {
     mesh.children[0].position.set(0, 1, -0.5);
   }, [result]);
 
-  useFrame((state) =>{
-    let position = new Vector3(0,0.5,10);
-    position.setFromMatrixPosition(chassisBody.current.matrixWorld);
-    state.camera.lookAt(position);
+  useFrame(({camera}) =>{
+    // let position = new Vector3(0,0,0);
+    // position.setFromMatrixPosition(chassisBody.current.matrixWorld);
+    // state.camera.lookAt(position);
+
+    const offset = new Vector3(0, 2, 5); // 원하는 거리와 높이 지정
+    const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
+    const targetPosition = chassisPosition.clone().add(offset);
+
+    // 보간을 사용하여 부드러운 이동 효과를 생성
+    const smoothFactor = 0.1;
+    camera.position.lerp(targetPosition, smoothFactor);
+
+    // 카메라가 물체를 바라보도록 설정
+    camera.lookAt(chassisPosition);
   })
 
   return (
     <>
         <group ref={vehicle} name="vehicle">
           <group ref={chassisBody} name="chassisBody">
-            <primitive object={result} rotation-y={Math.PI} position={[0, -0.08, 0]}/>
+            <primitive object={result} rotation-y={Math.PI} position={[0, -0.08, 0]} castShadow
+          receiveShadow/>
           </group>
           <Wheel wheelRef={wheels[0]}/>
           <Wheel wheelRef={wheels[1]}/>

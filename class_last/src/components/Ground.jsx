@@ -1,9 +1,8 @@
 import { usePlane } from "@react-three/cannon";
 import { useRef } from "react";
+import { Tile } from "./ Tile";
 import { ColliderBox } from "./ColliderBox";
 import { DummyBox } from "./DummyBox";
-import { Rock } from "./Rock";
-import { Tree } from "./Tree";
 
 export function Ground() {
   const [ref] = usePlane(
@@ -15,15 +14,17 @@ export function Ground() {
   );
 
   return (
-    <>
-      {/* <mesh ref={ref} receiveShadow>
+    // <group rotation={[0, Math.PI / 2 + 30, 0]}>
+    <group>
+      <mesh ref={ref} receiveShadow>
         <planeGeometry args={[24, 24]} />
         <meshBasicMaterial
-          opacity={1}
+          opacity={0}
           transparent={true}
-          color={0xFFFF00}
         />
-      </mesh> */}
+      </mesh>
+      <Tile position={[0,0,0]} scale={[0.2,0.01,0.2]}/>
+      <Tile position={[-2,-1,0]} scale={[0.2,0.01,0.2]}/>
       {/* 앞 */}
       <ColliderBox position={[0, 0.5, 5]} scale={[7, 1, 0.3]}/>
       {/* 뒤 */}
@@ -33,13 +34,9 @@ export function Ground() {
       {/* 우 */}
       <ColliderBox position={[-3.5, 0.5, 0]} scale={[0.3, 1, 10]}/>
       <DummyBox position={[-0.75, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
-      <Rock position={[0, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
-      <Rock position={[-0.5, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
-      <Rock position={[-1, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
-      <Rock position={[-1.5, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
       <DummyBox position={[0.75, 0.5, -2]} scale={[0.2, 0.2, 0.2]} />
 
       <DummyBox position={[1, 0.5, 3]} scale={[0.2, 0.2, 0.2]} />
-    </>
+    </group>
   );
 }
