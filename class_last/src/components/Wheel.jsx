@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 
-export const Wheel = ({ wheelRef , lefSide }) => {
+export const Wheel = ({ wheelRef, lefSide }) => {
 const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/assets/models/car.glb`)
   return(
     <group ref={wheelRef}>
