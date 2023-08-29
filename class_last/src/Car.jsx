@@ -8,17 +8,20 @@ import { Vector3 } from "three";
 import { Wheel } from "./components/Wheel";
 import { useRecoilState } from "recoil";
 import { stage1 } from "./utils/atom";
+import { useGLTF } from "@react-three/drei";
+import { motion } from "framer-motion-3d";
 
+const carModelUrl = process.env.PUBLIC_URL + "/assets/models/body.glb";
+useGLTF.preload(carModelUrl)
 
-
-export function Car({carModel}) {
+export function Car() {
   const [stage, setStage] = useRecoilState(stage1);
   let result = useLoader(
     GLTFLoader,
-    carModel,
+    carModelUrl,
   ).scene;
   
-  const position = [0, 0.5, 0];
+  const position = [0, 0.2, 0];
   const width = 0.15;
   const height = 0.07;
   const front = 0.15;
@@ -83,7 +86,10 @@ export function Car({carModel}) {
 
   return (
     <>
-        <group ref={vehicle} name="vehicle">
+        <motion.group
+          transition={{delay: 3}}
+        
+        ref={vehicle} name="vehicle">
           <group ref={chassisBody} name="chassisBody">
             <primitive 
               object={result} 
@@ -95,7 +101,7 @@ export function Car({carModel}) {
           <Wheel wheelRef={wheels[1]} lefSide={true}/>
           <Wheel wheelRef={wheels[2]}/>
           <Wheel wheelRef={wheels[3]} lefSide={true}/>
-        </group>
+        </motion.group>
     </>
   );
 }
