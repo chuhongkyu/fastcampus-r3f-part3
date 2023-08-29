@@ -5,7 +5,7 @@ import { Scene } from "./Scene";
 import { Physics } from "@react-three/cannon";
 
 createRoot(document.getElementById("root")).render(
-  <Canvas shadows>
+  <Canvas shadows shadowMap>
     <Physics broadphase="SAP" gravity={[0, -2.6, 0]}>
       <Scene />
     </Physics>

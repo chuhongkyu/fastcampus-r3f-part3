@@ -17,9 +17,9 @@ export function Ground() {
   return (
     // <group rotation={[0, Math.PI / 2 + 30, 0]}>
     <group>
-      <mesh ref={ref} receiveShadow>
+      <mesh ref={ref} receiveShadow castShadow>
         <planeGeometry args={[24, 24]} />
-        <meshBasicMaterial
+        <meshStandardMaterial
           opacity={0}
           transparent={true}
         />

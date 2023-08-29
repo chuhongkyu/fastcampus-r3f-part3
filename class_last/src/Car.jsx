@@ -57,15 +57,13 @@ export function Car() {
     // position.setFromMatrixPosition(chassisBody.current.matrixWorld);
     // state.camera.lookAt(position);
 
-    const offset = new Vector3(0, 2, 5); // 원하는 거리와 높이 지정
+    const offset = new Vector3(0, 2, 5);
     const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
     const targetPosition = chassisPosition.clone().add(offset);
 
-    // 보간을 사용하여 부드러운 이동 효과를 생성
     const smoothFactor = 0.1;
     camera.position.lerp(targetPosition, smoothFactor);
 
-    // 카메라가 물체를 바라보도록 설정
     camera.lookAt(chassisPosition);
   })
 

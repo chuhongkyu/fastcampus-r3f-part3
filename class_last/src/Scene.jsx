@@ -2,20 +2,22 @@ import {
   Environment,
   OrbitControls,
   PerspectiveCamera,
+  Stats,
 } from "@react-three/drei";
 import { Suspense } from "react";
 import { Ground } from "./components/Ground";
 import { Car } from "./Car";
-import { Perf } from "r3f-perf";
-
 export function Scene() {
 
   return (
     <Suspense fallback={null}>
-      {/* <Perf position="top-left" /> */}
+      <Stats/>
       <Environment preset="city"/>
-      <directionalLight intensity={6} />
-      
+      <directionalLight 
+        shadow-mapSize-height={512}
+        shadow-mapSize-width={512}
+        intensity={1}
+        castShadow />
       <PerspectiveCamera
           makeDefault 
           fov={40}
