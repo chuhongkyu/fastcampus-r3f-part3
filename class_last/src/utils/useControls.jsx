@@ -2,25 +2,24 @@ import { useEffect, useState } from "react";
 
 export const useControls = (vehicleApi, chassisApi) => {
   let [controls, setControls] = useState({
-    // w: boolean,   
-    // a: boolean,   
-    // s: boolean,   
-    // d: boolean,   
-    // r: boolean,   
+    // ArrowUp: boolean,
+    // ArrowDown: boolean,
+    // ArrowLeft: boolean,
+    // ArrowRight: boolean,
   });
 
   useEffect(() => {
     const keyDownPressHandler = (e) => {
       setControls((controls) => ({ 
         ...controls, 
-        [e.key.toLowerCase()]: true 
+        [e.key]: true 
       }));
     }
 
     const keyUpPressHandler = (e) => {
       setControls((controls) => ({ 
         ...controls, 
-        [e.key.toLowerCase()]: false 
+        [e.key]: false 
       }));
     }
   
@@ -33,10 +32,10 @@ export const useControls = (vehicleApi, chassisApi) => {
   }, []);
 
   useEffect(() => {
-    if (controls.w) {
+    if (controls.ArrowUp) {
       vehicleApi.applyEngineForce(150, 2);
       vehicleApi.applyEngineForce(150, 3);
-    } else if (controls.s) {
+    } else if (controls.ArrowDown) {
       vehicleApi.applyEngineForce(-150, 2);
       vehicleApi.applyEngineForce(-150, 3);
     } else {
@@ -44,18 +43,18 @@ export const useControls = (vehicleApi, chassisApi) => {
       vehicleApi.applyEngineForce(0, 3);
     }
 
-    if (controls.a) {
+    if (controls.ArrowLeft) {
       vehicleApi.setSteeringValue(0.35, 2);
       vehicleApi.setSteeringValue(0.35, 3);
       vehicleApi.setSteeringValue(-0.1, 0);
       vehicleApi.setSteeringValue(-0.1, 1);
-    } else if (controls.d) {
+    } else if (controls.ArrowRight) {
       vehicleApi.setSteeringValue(-0.35, 2);
       vehicleApi.setSteeringValue(-0.35, 3);
       vehicleApi.setSteeringValue(0.1, 0);
       vehicleApi.setSteeringValue(0.1, 1);
     } else {
-      for(let i = 0; i < 4; i++) {
+      for (let i = 0; i < 4; i++) {
         vehicleApi.setSteeringValue(0, i);
       }
     }
