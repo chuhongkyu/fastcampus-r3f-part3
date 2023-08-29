@@ -50,6 +50,9 @@ export function Car() {
     mesh.scale.set(0.1, 0.13, 0.14);
     mesh.children[0].rotation.set(0, -Math.PI/2, 0);
     mesh.children[0].position.set(0, 1, -0.5);
+    mesh.children[0].children.map((el)=>{
+      el.children[0].castShadow = true;
+    })
   }, [result]);
 
   useFrame(({camera}) =>{

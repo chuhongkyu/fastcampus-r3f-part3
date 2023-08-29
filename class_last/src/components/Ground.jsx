@@ -25,10 +25,10 @@ export function Ground() {
       <Tree position={[1.3, 0, 0.7]} scale={[0.3, 1, 0.3]} />
 
       <Tile position={[0,0,0]} scale={[0.2, 0.01, 0.2]}/>
-      <Tile position={[-0.3,0,0.5]} scale={[0.2, 0.01, 0.2]}/>
-      <Tile position={[-0.6,0,1]} scale={[0.2, 0.01, 0.2]}/>
-      <Tile position={[-0.9,0,1.5]} scale={[0.2, 0.01, 0.2]}/>
-      <Tile position={[-1.2,0,2]} scale={[0.2, 0.01, 0.2]}/>
+      <Tile position={[-0.35,0,0.5]} scale={[0.2, 0.01, 0.2]}/>
+      <Tile position={[-0.7,0,1]} scale={[0.2, 0.01, 0.2]}/>
+      <Tile position={[-1.05,0,1.5]} scale={[0.2, 0.01, 0.2]}/>
+      <Tile position={[-1.40,0,2]} scale={[0.2, 0.01, 0.2]}/>
       {/* 앞 */}
       <ColliderBox position={[0, 0.5, 5]} scale={[7, 1, 0.3]}/>
       {/* 뒤 */}

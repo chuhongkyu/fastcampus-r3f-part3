@@ -1,13 +1,8 @@
 import { useBox } from "@react-three/cannon";
-import { useEffect, useState } from "react";
 
 const debug = false;
 
 export function DummyBox({ position, scale }) {
-  const [start, setStart] = useState(false)
-  useEffect(()=>{
-    setStart(!start)
-  },[])
   const [ref, api] = useBox(() => ({
     args: scale,
     position,
