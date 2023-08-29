@@ -1,16 +1,19 @@
 import { useBox, useRaycastVehicle } from "@react-three/cannon";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useWheels } from "./utils/useWheels";
 import { useControls } from "./utils/useControls";
 import { Vector3 } from "three";
 import { Wheel } from "./components/Wheel";
 
-export function Car() {
+
+
+export function Car({carModel}) {
+
   let result = useLoader(
     GLTFLoader,
-    process.env.PUBLIC_URL + "/assets/models/body.glb",
+    carModel,
   ).scene;
   
   const position = [0, 0.5, 0];

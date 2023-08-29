@@ -1,8 +1,7 @@
 import { usePlane } from "@react-three/cannon";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Tile } from "./Tile";
 import { ColliderBox } from "./ColliderBox";
-import { DummyBox } from "./DummyBox";
 import { Tree } from "./Tree";
 
 export function Ground() {
@@ -24,11 +23,8 @@ export function Ground() {
       <Tree position={[-1.3, 0, -0.7]} scale={[0.3, 1, 0.3]} />
       <Tree position={[1.3, 0, 0.7]} scale={[0.3, 1, 0.3]} />
 
-      <Tile position={[0,0,0]} scale={[0.2, 0.01, 0.2]}/>
-      <Tile position={[-0.35,0,0.5]} scale={[0.2, 0.01, 0.2]}/>
-      <Tile position={[-0.7,0,1]} scale={[0.2, 0.01, 0.2]}/>
-      <Tile position={[-1.05,0,1.5]} scale={[0.2, 0.01, 0.2]}/>
-      <Tile position={[-1.40,0,2]} scale={[0.2, 0.01, 0.2]}/>
+      <Tile position={[0,0,0]}/>
+
       {/* 앞 */}
       <ColliderBox position={[0, 0.5, 5]} scale={[7, 1, 0.3]}/>
       {/* 뒤 */}
