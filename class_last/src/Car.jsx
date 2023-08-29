@@ -75,8 +75,6 @@ export function Car() {
               object={result} 
               rotation-y={Math.PI} 
               position={[0, -0.08, 0]} 
-              castShadow
-              receiveShadow
           />
           </group>
           <Wheel wheelRef={wheels[0]}/>

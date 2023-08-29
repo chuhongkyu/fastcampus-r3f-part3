@@ -5,7 +5,13 @@ import { Scene } from "./Scene";
 import { Physics } from "@react-three/cannon";
 
 createRoot(document.getElementById("root")).render(
-  <Canvas shadows shadowMap>
+  <Canvas 
+    shadows 
+    camera={
+      {
+        fov:40,
+        position:[0, 2, 5]
+      }}>
     <Physics broadphase="SAP" gravity={[0, -2.6, 0]}>
       <Scene />
     </Physics>
