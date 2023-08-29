@@ -24,11 +24,11 @@ export function Ground() {
           transparent={true}
         />
       </mesh>
-      <Tree position={[-1.3, 0, -0.7]} scale={[0.3,1,0.3]} />
-      <Tree position={[1.3, 0, 0.7]} scale={[0.3,1,0.3]} />
+      <Tree position={[-1.3, 0, -0.7]} scale={[0.3, 1, 0.3]} />
+      <Tree position={[1.3, 0, 0.7]} scale={[0.3, 1, 0.3]} />
 
-      <Tile position={[0,0,0]} scale={[0.2,0.01,0.2]}/>
-      <Tile position={[-2,-1,0]} scale={[0.2,0.01,0.2]}/>
+      <Tile position={[0,0,0]} scale={[0.2, 0.01, 0.2]}/>
+      <Tile position={[-2,-1,0]} scale={[0.2, 0.01, 0.2]}/>
       {/* 앞 */}
       <ColliderBox position={[0, 0.5, 5]} scale={[7, 1, 0.3]}/>
       {/* 뒤 */}
@@ -37,11 +37,6 @@ export function Ground() {
       <ColliderBox position={[3.5, 0.5, 0]} scale={[0.3, 1, 10]}/>
       {/* 우 */}
       <ColliderBox position={[-3.5, 0.5, 0]} scale={[0.3, 1, 10]}/>
-      
-      <DummyBox position={[-0.75, 0.5, 2]} scale={[0.2, 0.2, 0.2]} />
-      <DummyBox position={[0.75, 0.5, -2]} scale={[0.2, 0.2, 0.2]} />
-
-      <DummyBox position={[1, 0.5, 3]} scale={[0.2, 0.2, 0.2]} />
     </group>
   );
 }

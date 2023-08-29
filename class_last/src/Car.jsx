@@ -25,7 +25,7 @@ export function Car() {
       args: chassisBodyArgs,
       mass: 150,
       position,
-      rotation: [0,Math.PI/2 + 1,0]
+      rotation: [0,Math.PI/2+1,0]
     }),
     useRef(null),
   );
@@ -71,8 +71,13 @@ export function Car() {
     <>
         <group ref={vehicle} name="vehicle">
           <group ref={chassisBody} name="chassisBody">
-            <primitive object={result} rotation-y={Math.PI} position={[0, -0.08, 0]} castShadow
-          receiveShadow/>
+            <primitive 
+              object={result} 
+              rotation-y={Math.PI} 
+              position={[0, -0.08, 0]} 
+              castShadow
+              receiveShadow
+          />
           </group>
           <Wheel wheelRef={wheels[0]}/>
           <Wheel wheelRef={wheels[1]} lefSide={true}/>
