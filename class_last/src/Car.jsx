@@ -6,11 +6,13 @@ import { useWheels } from "./utils/useWheels";
 import { useControls } from "./utils/useControls";
 import { Vector3 } from "three";
 import { Wheel } from "./components/Wheel";
+import { useRecoilState } from "recoil";
+import { stage1 } from "./utils/atom";
 
 
 
 export function Car({carModel}) {
-
+  const [stage, setStage] = useRecoilState(stage1);
   let result = useLoader(
     GLTFLoader,
     carModel,
@@ -58,7 +60,7 @@ export function Car({carModel}) {
     })
   }, [result]);
 
-  useFrame(({camera}) =>{
+  useFrame((state) =>{
     // let position = new Vector3(0,0,0);
     // position.setFromMatrixPosition(chassisBody.current.matrixWorld);
     // state.camera.lookAt(position);
@@ -68,9 +70,15 @@ export function Car({carModel}) {
     const targetPosition = chassisPosition.clone().add(offset);
 
     const smoothFactor = 0.1;
-    camera.position.lerp(targetPosition, smoothFactor);
+    state.camera.position.lerp(targetPosition, smoothFactor);
 
-    camera.lookAt(chassisPosition);
+    state.camera.lookAt(chassisPosition);
+
+    if ( Math.abs(4.5 - chassisPosition.x) < 2 && Math.abs(4.5 - chassisPosition.z) < 2){
+      setStage(true);
+    }else{
+      setStage(false);
+    }
   })
 
   return (

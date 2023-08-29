@@ -22,7 +22,7 @@ export function Scene() {
 
   return (
     <Suspense fallback={null}>
-      <Stats/>
+      {/* <Stats/> */}
       <Environment preset="city"/>
       <directionalLight 
         position={[-0.5,10,0]}
