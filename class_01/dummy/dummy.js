@@ -8,10 +8,6 @@ document.body.appendChild( renderer.domElement );
 const ambientLight = new THREE.AmbientLight( 0xFFFFFF );
 scene.add( ambientLight );
 
-const pointLight = new THREE.PointLight( 0xFFFFFF, 1, 100 );
-pointLight.position.set( 10, 10, 10 );
-scene.add( pointLight );
-
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
 const box = new THREE.Mesh( geometry, material );
