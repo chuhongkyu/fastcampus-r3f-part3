@@ -13,14 +13,6 @@ export function Ground() {
 
   return (
     <>
-      {/* <mesh ref={ref} receiveShadow>
-        <planeGeometry args={[24, 24]} />
-        <meshBasicMaterial
-          opacity={1}
-          transparent={true}
-          color={0xFFFF00}
-        />
-      </mesh> */}
       {/* 앞 */}
       <ColliderBox position={[0, 0.5, 5]} scale={[7, 1, 0.3]}/>
       {/* 뒤 */}
@@ -29,6 +21,7 @@ export function Ground() {
       <ColliderBox position={[3.5, 0.5, 0]} scale={[0.3, 1, 10]}/>
       {/* 우 */}
       <ColliderBox position={[-3.5, 0.5, 0]} scale={[0.3, 1, 10]}/>
+
     </>
   );
 }

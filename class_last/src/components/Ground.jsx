@@ -5,6 +5,9 @@ import { ColliderBox } from "./ColliderBox";
 import { Tree } from "./Tree";
 import { MotionStage } from "./MotionStage";
 import { Brick } from "./Brick";
+import { Welcome } from "./Welcome";
+import { Description } from "./Description"
+import { Arrow } from "./Arrow"
 
 export function Ground() {
   const [ref] = usePlane(
@@ -37,6 +40,9 @@ export function Ground() {
 
       <MotionStage position={[3,0,4]}/>
       <Brick position={[-2,0,3]}/>
+      {/* <Welcome position={[1.5,0,-3]}/> */}
+      <Description/>
+      <Arrow />
     </group>
   );
 }
