@@ -88,8 +88,7 @@ export function Car() {
     <>
         <motion.group
           transition={{delay: 3}}
-        
-        ref={vehicle} name="vehicle">
+          ref={vehicle} name="vehicle">
           <group ref={chassisBody} name="chassisBody">
             <primitive 
               object={result} 
