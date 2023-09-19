@@ -12,18 +12,16 @@ export function Tree({position, scale}) {
 
     const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/assets/models/tree.glb`)
     return(
-        <group 
-            ref={ref}
-            >
-            <motion.mesh 
-                animate={
-                    { scale: [0, 0.2], y: [0,0.5]}
-                }
+        <group ref={ref}>
+            
+           <motion.mesh 
+                animate={{ scale: [0, 0.2], y: [0,0.5]}}
                 transition={{
                     delay: 2,
                     duration: 0.3,
                 }}
             castShadow geometry={nodes.tree.geometry} material={materials['Material.003']} position={[0, 0.5, 0.1]} rotation={[-1.555, 0, 0]} scale={0} />
+
         </group>
     )
 }

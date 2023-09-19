@@ -8,7 +8,7 @@ export const useWheels = (width, height, front, radius) => {
     radius,
     directionLocal: [0, -1, 0],
     axleLocal: [1, 0, 0],
-    suspensionStiffness: 60,
+    suspensionStiffness: 20,
     suspensionRestLength: 0.1,
     frictionSlip: 5,
     dampingRelaxation: 2.3,
@@ -45,7 +45,7 @@ export const useWheels = (width, height, front, radius) => {
 
   const propsFunc = () => ({
     collisionFilterGroup: 0,
-    mass: 2,
+    mass: 1,
     shapes: [
       {
         args: [wheelInfo.radius, wheelInfo.radius, 0.015, 16],
