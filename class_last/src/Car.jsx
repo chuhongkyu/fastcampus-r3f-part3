@@ -6,8 +6,8 @@ import { useWheels } from "./utils/useWheels";
 import { useControls } from "./utils/useControls";
 import { Vector3 } from "three";
 import { Wheel } from "./components/Wheel";
-import { useRecoilState } from "recoil";
-import { stage1 } from "./utils/atom";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { onStartScene, stage1 } from "./utils/atom";
 import { useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 
@@ -16,6 +16,8 @@ useGLTF.preload(carModelUrl)
 
 export function Car() {
   const [stage, setStage] = useRecoilState(stage1);
+  const isStart = useRecoilValue(onStartScene);
+  
   let result = useLoader(
     GLTFLoader,
     carModelUrl,
@@ -56,18 +58,26 @@ export function Car() {
 
     let mesh = result;
     mesh.scale.set(0.1, 0.13, 0.14);
-    mesh.children[0].rotation.set(0, -Math.PI/2, 0);
-    mesh.children[0].position.set(0, 1, -0.5);
+    mesh.children[0].rotation.set(0, Math.PI/2, 0);
+    mesh.children[0].position.set(0, 0.4, 0.4);
     mesh.children[0].children.map((el)=>{
       el.children[0].castShadow = true;
     })
   }, [result]);
 
   useFrame((state) =>{
+    if(isStart){
+      setTimeout(() => {
+        makeCamera(state);
+      }, 500); 
+    }
     // let position = new Vector3(0,0,0);
     // position.setFromMatrixPosition(chassisBody.current.matrixWorld);
     // state.camera.lookAt(position);
 
+  })
+
+  function makeCamera(state){
     const offset = new Vector3(0, 2, 5);
     const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
     const targetPosition = chassisPosition.clone().add(offset);
@@ -82,18 +92,17 @@ export function Car() {
     }else{
       setStage(false);
     }
-  })
+  }
 
   return (
     <>
         <motion.group
-          transition={{delay: 3}}
+          initial={{scale: 0, y: 0.5}}
+          animate={isStart ? {scale: 1,y: 0}: {scale: 0,y: 0.5}}
           ref={vehicle} name="vehicle">
           <group ref={chassisBody} name="chassisBody">
             <primitive 
-              object={result} 
-              rotation-y={Math.PI} 
-              position={[0, -0.08, 0]} 
+              object={result}  
           />
           </group>
           <Wheel wheelRef={wheels[0]}/>

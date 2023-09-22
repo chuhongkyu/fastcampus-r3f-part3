@@ -1,8 +1,14 @@
 import { Text3D } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
+import { useRecoilState } from "recoil";
+import { onStartScene } from "../utils/atom";
 
 export function Description (){
     const fontUrl = process.env.PUBLIC_URL + '/assets/fonts/Pretendard.json'
+    const [isStart, setStart ] = useRecoilState(onStartScene)
+    const onComplete = ()=>{
+        setStart(!isStart)
+    }
 
     return(
         <motion.group 
@@ -10,6 +16,7 @@ export function Description (){
             rotation={[-Math.PI/2,0,-0.6]}
             animate={{y: [-2, 0], scale: [0,1]}}
             transition={{duration: 0.3, delay: 2.5}}
+            onAnimationComplete={onComplete}
             >
             <Text3D 
             letterSpacing={0.02} 

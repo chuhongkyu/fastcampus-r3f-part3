@@ -29,14 +29,6 @@ export function Ground() {
       <Tree position={[1.3, 0, 0.7]} scale={[0.3, 1, 0.3]} />
 
       <Tile position={[0,0,0]}/>
-      {/* 앞 */}
-      <ColliderBox position={[0, 0.5, 5]} scale={[7, 1, 0.3]}/>
-      {/* 뒤 */}
-      <ColliderBox position={[0, 0.5, -5]} scale={[7, 1, 0.3]}/>
-      {/* 좌 */}
-      <ColliderBox position={[3.5, 0.5, 0]} scale={[0.3, 1, 10]}/>
-      {/* 우 */}
-      <ColliderBox position={[-3.5, 0.5, 0]} scale={[0.3, 1, 10]}/>
 
       <MotionStage position={[3,0,4]}/>
       <Brick position={[-2,0,3]}/>
