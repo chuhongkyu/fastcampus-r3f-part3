@@ -8,6 +8,7 @@ import { Brick } from "./Brick";
 import { Welcome } from "./Welcome";
 import { Description } from "./Description"
 import { Arrow } from "./Arrow"
+import { Ball } from "./Ball";
 
 export function Ground() {
   const [ref] = usePlane(
@@ -33,6 +34,8 @@ export function Ground() {
       <MotionStage position={[3,0,4]}/>
       <Brick position={[-2,0,3]}/>
       {/* <Welcome position={[1.5,0,-3]}/> */}
+
+      <Ball position={[-3, 0.5, 0]} />
       <Description/>
       <Arrow />
     </group>

@@ -1,4 +1,6 @@
 #fast campus
 
 
-npx gltfjsx tree1.glb
+npx gltfjsx brick.glb
+
+gltf-pipeline -i brick.glb -o brick.glb -d
