@@ -2,10 +2,6 @@ import { useEffect, useState } from "react";
 
 export const useControls = (vehicleApi, chassisApi) => {
   let [controls, setControls] = useState({
-    // ArrowUp: boolean,
-    // ArrowDown: boolean,
-    // ArrowLeft: boolean,
-    // ArrowRight: boolean,
   });
 
   useEffect(() => {
@@ -31,13 +27,14 @@ export const useControls = (vehicleApi, chassisApi) => {
     }
   }, []);
 
+
   useEffect(() => {
     if (controls.ArrowUp) {
-      vehicleApi.applyEngineForce(150, 2);
-      vehicleApi.applyEngineForce(150, 3);
+      vehicleApi.applyEngineForce(10, 2);
+      vehicleApi.applyEngineForce(10, 3);
     } else if (controls.ArrowDown) {
-      vehicleApi.applyEngineForce(-150, 2);
-      vehicleApi.applyEngineForce(-150, 3);
+      vehicleApi.applyEngineForce(-10, 2);
+      vehicleApi.applyEngineForce(-10, 3);
     } else {
       vehicleApi.applyEngineForce(0, 2);
       vehicleApi.applyEngineForce(0, 3);

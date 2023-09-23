@@ -16,8 +16,8 @@ export function Scene() {
       <Environment preset="city"/>
       <directionalLight 
         position={[-0.5,10,0]}
-        shadow-mapSize-height={512}
-        shadow-mapSize-width={512}
+        // shadow-mapSize-height={512}
+        // shadow-mapSize-width={512}
         intensity={1}
         castShadow />
       <OrbitControls enableZoom={false} enableRotate={false} target={[0,0.5,0]}/>

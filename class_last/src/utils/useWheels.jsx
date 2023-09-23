@@ -8,14 +8,14 @@ export const useWheels = (width, height, front, radius) => {
     radius,
     directionLocal: [0, -1, 0],
     axleLocal: [1, 0, 0],
-    suspensionStiffness: 30,
+    suspensionStiffness: 25,
     suspensionRestLength: 0.1,
     frictionSlip: 5,
-    dampingRelaxation: 2.3,
-    dampingCompression: 4.4,
+    dampingRelaxation: 1.8,
+    dampingCompression: 1.5,
     maxSuspensionForce: 10000,
     rollInfluence: 0.01,
-    maxSuspensionTravel: 0.1,
+    maxSuspensionTravel: 0.3,
     customSlidingRotationalSpeed: -30,
     useCustomSlidingRotationalSpeed: true,
   };
@@ -45,7 +45,7 @@ export const useWheels = (width, height, front, radius) => {
 
   const propsFunc = () => ({
     collisionFilterGroup: 0,
-    mass: 2,
+    mass: 5,
     shapes: [
       {
         args: [wheelInfo.radius, wheelInfo.radius, 0.015, 16],

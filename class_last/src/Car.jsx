@@ -33,7 +33,7 @@ export function Car() {
   const [chassisBody, chassisApi] = useBox(
     () => ({
       args: chassisBodyArgs,
-      mass: 200,
+      mass: 20,
       position,
       rotation: [0,Math.PI/2+1,0]
     }),
@@ -99,9 +99,7 @@ export function Car() {
           animate={isStart ? {scale: 1,y: 0}: {scale: 0,y: 0.5}}
           ref={vehicle} name="vehicle">
           <group ref={chassisBody} name="chassisBody">
-            <primitive 
-              object={result}  
-          />
+            <primitive object={result}/>
           </group>
           <Wheel wheelRef={wheels[0]}/>
           <Wheel wheelRef={wheels[1]} lefSide={true}/>
