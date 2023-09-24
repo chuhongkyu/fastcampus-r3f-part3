@@ -33,12 +33,14 @@ export function Car() {
   const [chassisBody, chassisApi] = useBox(
     () => ({
       args: chassisBodyArgs,
-      mass: 200,
       position,
-      rotation: [0,Math.PI/2+1,0]
+      rotation: [0,Math.PI/2+1,0],
+      type: "Dynamic",
+      mass: 200,
     }),
     useRef(null),
   );
+
 
   const [wheels, wheelInfos] = useWheels(width, height, front, wheelRadius);
 

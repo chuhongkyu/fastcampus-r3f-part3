@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useSphere } from '@react-three/cannon';
 import { motion } from 'framer-motion-3d';
@@ -7,10 +7,11 @@ useGLTF.preload('/ball.glb');
 
 export function Ball({ position }) {
   const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/assets/models/ball.glb`);
+
   const [ref] = useSphere(() => ({
     position,
-    args: [0.1], // 초기 크기
-    mass: 0.5,
+    args: [0.1],
+    mass: 0.05,
   }));
 
   return (
@@ -28,6 +29,8 @@ export function Ball({ position }) {
         <mesh castShadow geometry={nodes.beach_ball_white_0.geometry} material={materials.white} />
         <mesh castShadow geometry={nodes.beach_ball_yellow_0.geometry} material={materials.yellow} />
       </group>
+     
     </motion.group>
+    
   );
 }

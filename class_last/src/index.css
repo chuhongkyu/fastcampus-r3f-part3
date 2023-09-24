@@ -7,3 +7,12 @@ body, html, #root {
 }
 
 
+.information{
+  border-radius: 12px;
+  padding: 5px 20px;
+  height: auto;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  white-space: nowrap;
+  font-size: 22px;
+}
