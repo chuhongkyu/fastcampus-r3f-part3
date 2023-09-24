@@ -10,7 +10,7 @@ export function Ball({ position }) {
   const [ref] = useSphere(() => ({
     position,
     args: [0.1], // 초기 크기
-    mass: 0.01,
+    mass: 0.5,
   }));
 
   return (

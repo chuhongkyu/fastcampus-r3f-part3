@@ -9,6 +9,7 @@ import { Welcome } from "./Welcome";
 import { Description } from "./Description"
 import { Arrow } from "./Arrow"
 import { Ball } from "./Ball";
+import Wall from "./Wall";
 
 export function Ground() {
   const [ref] = usePlane(
@@ -32,9 +33,9 @@ export function Ground() {
       <Tile position={[0,0,0]}/>
 
       <MotionStage position={[3,0,4]}/>
-      <Brick position={[-2,0,3]}/>
+      {/* <Brick position={[-2,0.5,3]}/> */}
       {/* <Welcome position={[1.5,0,-3]}/> */}
-
+      <Wall position={[-3.5, 0.1, -0.2]} />
       <Ball position={[-3, 0.5, 0]} />
       <Description/>
       <Arrow />

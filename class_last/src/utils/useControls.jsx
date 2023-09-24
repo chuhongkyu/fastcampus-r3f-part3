@@ -30,11 +30,11 @@ export const useControls = (vehicleApi, chassisApi) => {
 
   useEffect(() => {
     if (controls.ArrowUp) {
-      vehicleApi.applyEngineForce(10, 2);
-      vehicleApi.applyEngineForce(10, 3);
+      vehicleApi.applyEngineForce(60, 2);
+      vehicleApi.applyEngineForce(60, 3);
     } else if (controls.ArrowDown) {
-      vehicleApi.applyEngineForce(-10, 2);
-      vehicleApi.applyEngineForce(-10, 3);
+      vehicleApi.applyEngineForce(-60, 2);
+      vehicleApi.applyEngineForce(-60, 3);
     } else {
       vehicleApi.applyEngineForce(0, 2);
       vehicleApi.applyEngineForce(0, 3);

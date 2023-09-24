@@ -33,7 +33,7 @@ export function Car() {
   const [chassisBody, chassisApi] = useBox(
     () => ({
       args: chassisBodyArgs,
-      mass: 40,
+      mass: 200,
       position,
       rotation: [0,Math.PI/2+1,0]
     }),
