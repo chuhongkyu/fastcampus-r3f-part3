@@ -3,7 +3,7 @@ body, html, #root {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: radial-gradient(circle, rgba(233,223,148,1) 0%, rgba(238,206,174,1) 100%);
+  background: radial-gradient(circle, rgba(233,223,148,1) 0%, rgb(255, 233, 160) 100%);
 }
 
 

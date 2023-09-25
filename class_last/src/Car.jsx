@@ -23,9 +23,9 @@ export function Car() {
     carModelUrl,
   ).scene;
   
-  const position = [0, 0.2, 0];
+  const position = [0, 1, 0];
   const width = 0.15;
-  const height = 0.07;
+  const height = 0.1;
   const front = 0.15;
   const wheelRadius = 0.05;
 
@@ -34,8 +34,8 @@ export function Car() {
     () => ({
       args: chassisBodyArgs,
       position,
-      rotation: [0,Math.PI/2+1,0],
       type: "Dynamic",
+      rotation: [0, Math.PI, 0],
       mass: 200,
     }),
     useRef(null),
@@ -61,7 +61,7 @@ export function Car() {
     let mesh = result;
     mesh.scale.set(0.1, 0.13, 0.14);
     mesh.children[0].rotation.set(0, Math.PI/2, 0);
-    mesh.children[0].position.set(0, 0.4, 0.4);
+    mesh.children[0].position.set(0, 0.5, 0.4);
     mesh.children[0].children.map((el)=>{
       el.children[0].castShadow = true;
     })
@@ -77,7 +77,7 @@ export function Car() {
 
   function makeCamera(state){
     if(isStart){
-      const offset = new Vector3(0, 2, 5);
+      const offset = new Vector3(1.5, 2, 3);
       const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
       const targetPosition = chassisPosition.clone().add(offset);
 

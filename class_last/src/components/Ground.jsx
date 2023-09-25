@@ -11,6 +11,7 @@ import { Arrow } from "./Arrow"
 import { Ball } from "./Ball";
 import Wall from "./Wall";
 import { Banner } from "./Banner";
+import { TextGroup } from "./TextGroup";
 
 export function Ground() {
   const [ref] = usePlane(
@@ -25,23 +26,31 @@ export function Ground() {
     // <group rotation={[0, Math.PI / 2 + 30, 0]}>
     <group>
       <mesh ref={ref} receiveShadow castShadow>
-        <planeGeometry args={[50, 50]} />
+        <planeGeometry args={[100, 100]} />
         <shadowMaterial attach='material' opacity={0.3} />
       </mesh>
-      <Tree position={[-1.3, 0, -0.7]} scale={[0.3, 1, 0.3]} />
-      <Tree position={[1.3, 0, 0.7]} scale={[0.3, 1, 0.3]} />
+      <Tile position={[0,0,0.4]}/>
+      <Tree position={[-1, 0, -0.4]} scale={[0.3, 1, 0.3]}/>
+      <Tree position={[1, 0, -0.4]} scale={[0.3, 1, 0.3]} />
 
-      <Tile position={[0,0,0]}/>
+      <Description/>
+      <Arrow />
+
+      <Wall position={[-1.5, 0.1, 2.5]} />
+      <Ball position={[-1, 0.5, 2.3]} />
+
+
+      <MotionStage position={[3,0,4]}/>
+
+      {/* 
 
       <Banner position={[5,0.2,-5]} scale={[10,2,1]}/>
 
       <MotionStage position={[3,0,4]}/>
-      {/* <Brick position={[-2,0.5,3]}/> */}
-      {/* <Welcome position={[1.5,0,-3]}/> */}
-      <Wall position={[-3.5, 0.1, -0.2]} />
-      <Ball position={[-3, 0.5, 0]} />
-      <Description/>
-      <Arrow />
+
+       */}
+
+      {/* <TextGroup/> */}
     </group>
   );
 }
