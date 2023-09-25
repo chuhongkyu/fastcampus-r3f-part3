@@ -1,5 +1,5 @@
 import { useBox, useRaycastVehicle } from "@react-three/cannon";
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useFrame, useLoader, useThree } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useWheels } from "./utils/useWheels";
@@ -17,7 +17,8 @@ useGLTF.preload(carModelUrl)
 export function Car() {
   const [stage, setStage] = useRecoilState(stage1);
   const isStart = useRecoilValue(onStartScene);
-  
+  const camera = useThree(state => state.camera)
+
   let result = useLoader(
     GLTFLoader,
     carModelUrl,
@@ -67,21 +68,19 @@ export function Car() {
     })
   }, [result]);
 
-  useFrame((state) =>{
-    makeCamera(state);
-
+  useFrame(() =>{
+    makeCamera()
   })
 
   const smoothFactor = 0.1;
 
-  function makeCamera(state){
+  function makeCamera(){
     if(isStart){
       const offset = new Vector3(1.5, 2, 3);
       const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody?.current?.matrixWorld);
-      const targetPosition = chassisPosition.clone().add(offset);
-
-      state?.camera?.position?.lerp(targetPosition, smoothFactor);
-      state?.camera?.lookAt(chassisPosition);
+      const targetPosition = chassisPosition?.clone().add(offset);
+      camera?.lookAt(chassisPosition);
+      camera?.position?.lerp(targetPosition, smoothFactor);
       
       if ( Math.abs(4.5 - chassisPosition.x) < 2 && Math.abs(4.5 - chassisPosition.z) < 2){
         setStage(true);
@@ -95,7 +94,7 @@ export function Car() {
     <>
         <motion.group
           initial={{scale: 0, y: 0.5}}
-          animate={isStart ? {scale: 1,y: 0}: {scale: 0,y: 0.5}}
+          animate={isStart ? {scale: 1, y: 0}: {scale: 0, y: 0.5}}
           ref={vehicle} name="vehicle">
           <group ref={chassisBody} name="chassisBody">
             <primitive object={result}/>

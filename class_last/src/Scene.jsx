@@ -1,4 +1,4 @@
-import { OrbitControls, Stats } from "@react-three/drei";
+import { Stats } from "@react-three/drei";
 import { Suspense } from "react";
 import { Ground } from "./components/Ground";
 import { Car } from "./Car";
@@ -11,7 +11,6 @@ export function Scene() {
     <Suspense fallback={<Loading/>}>
       {/* <Stats/> */}
       <Lights color="#fad6a1"/>
-      <OrbitControls enableZoom={false} enableRotate={false} target={[0,0.5,0]}/>
       <Ground />
       <Car /> 
     </Suspense>
