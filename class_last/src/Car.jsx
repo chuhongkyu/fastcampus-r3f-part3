@@ -69,23 +69,20 @@ export function Car() {
 
   useFrame((state) =>{
     makeCamera(state);
-    // let position = new Vector3(0,0,0);
-    // position.setFromMatrixPosition(chassisBody.current.matrixWorld);
-    // state.camera.lookAt(position);
 
   })
+
+  const smoothFactor = 0.1;
 
   function makeCamera(state){
     if(isStart){
       const offset = new Vector3(1.5, 2, 3);
-      const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
+      const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody?.current?.matrixWorld);
       const targetPosition = chassisPosition.clone().add(offset);
 
-      const smoothFactor = 0.1;
-      state.camera.position.lerp(targetPosition, smoothFactor);
-
-      state.camera.lookAt(chassisPosition);
-    
+      state?.camera?.position?.lerp(targetPosition, smoothFactor);
+      state?.camera?.lookAt(chassisPosition);
+      
       if ( Math.abs(4.5 - chassisPosition.x) < 2 && Math.abs(4.5 - chassisPosition.z) < 2){
         setStage(true);
       }else{
