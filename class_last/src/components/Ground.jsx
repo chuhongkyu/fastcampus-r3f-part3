@@ -2,7 +2,7 @@ import { usePlane } from "@react-three/cannon";
 import { useEffect, useRef, useState } from "react";
 import { Tile } from "./Tile";
 import { ColliderBox } from "./ColliderBox";
-import { Tree } from "./Tree";
+import Tree from "./Tree";
 import { MotionStage } from "./MotionStage";
 import { Brick } from "./Brick";
 import { Welcome } from "./Welcome";
@@ -32,6 +32,10 @@ export function Ground() {
       <Tile position={[0,0,0.4]}/>
       <Tree position={[-1, 0, -0.4]} scale={[0.3, 1, 0.3]}/>
       <Tree position={[1, 0, -0.4]} scale={[0.3, 1, 0.3]} />
+      <Tree position={[-3, 0, -0.4]} scale={[0.3, 1, 0.3]}/>
+      <Tree position={[3, 0, -0.4]} scale={[0.3, 1, 0.3]} />
+      <Tree position={[-1, 0, 5]} scale={[0.3, 1, 0.3]}/>
+      <Tree position={[1, 0, 5]} scale={[0.3, 1, 0.3]} />
 
       <Description/>
       <Arrow />
@@ -39,6 +43,7 @@ export function Ground() {
       <Wall position={[-1.5, 0.1, 2.5]} />
       <Ball position={[-1, 0.5, 2.3]} />
 
+      <Wall position={[1.5, 0.1, 3]} />
 
       <MotionStage position={[3,0,4]}/>
 
