@@ -9,3 +9,8 @@ export const onStartScene = atom({
     key: 'isStart',
     default: false,
 });
+
+export const onResetCar = atom({
+    key: 'isCar',
+    default: true,
+});

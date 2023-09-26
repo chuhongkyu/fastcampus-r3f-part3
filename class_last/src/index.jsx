@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { Scene } from "./Scene";
 import { Physics } from "@react-three/cannon";
 import { RecoilRoot } from "recoil";
+import ResetBtn from "./components/ResetBtn";
 
 createRoot(document.getElementById("root")).render(
   <RecoilRoot>
@@ -14,5 +15,6 @@ createRoot(document.getElementById("root")).render(
         <Scene />
       </Physics>
     </Canvas>
+    <ResetBtn/>
   </RecoilRoot>
 );
