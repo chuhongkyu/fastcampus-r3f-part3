@@ -79,7 +79,6 @@ export function Car() {
   function makeFollowCam(){
       const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
       pivot.position.lerp(chassisPosition,0.5)
-      camera.lookAt(chassisPosition)
   }
   
   function makeStage(){

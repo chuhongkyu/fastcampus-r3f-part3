@@ -17,7 +17,8 @@ export default function useFollowCam() {
 
   useEffect(() => {
     if(isStart){
-        camera.position.set(1.5, 2, 3)
+        camera.position.set(1,2,3.5)
+        camera.rotation.x = -0.5
         followCam.add(camera)
         pivot.add(followCam)
         scene.add(pivot)

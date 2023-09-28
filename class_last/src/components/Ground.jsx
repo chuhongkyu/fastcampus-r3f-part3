@@ -51,7 +51,7 @@ export function Ground() {
       <Ball position={[-1, 0.5, 2.3]} />
 
       <MotionStage position={[3,0,4]}/>
-      <Banner position={[0,1,-5]}/>
+      <Banner position={[1,1,-5]}/>
       {/* 
 
       <Banner position={[5,0.2,-5]} scale={[10,2,1]}/>
