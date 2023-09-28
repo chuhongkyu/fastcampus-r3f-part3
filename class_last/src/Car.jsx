@@ -95,7 +95,8 @@ export function Car() {
         <motion.group
           initial={{scale: 0, y: 0.5}}
           animate={isStart ? {scale: 1, y: 0}: {scale: 0, y: 0.5}}
-          ref={vehicle} name="vehicle">
+          ref={vehicle} 
+          name="vehicle">
           <group ref={chassisBody} name="chassisBody">
             <primitive object={result}/>
           </group>

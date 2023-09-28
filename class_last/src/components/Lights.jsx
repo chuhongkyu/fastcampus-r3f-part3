@@ -1,11 +1,19 @@
 import { Environment } from "@react-three/drei";
 
+
 export const Lights = ({ color }) => {
   
     return (
-      <group>
+      <>
         <Environment preset="city"/>
-        <directionalLight position={[2,10,0]} intensity={1.2} color={color} castShadow />
-      </group>
+        <ambientLight intensity={0.5}/>
+        <directionalLight 
+          castShadow
+          intensity={0.8}
+          shadow-mapSize-height={1024}
+          shadow-mapSize-width={1024}
+          position={[2, 5, -2]}
+          color={color}/>
+      </>
     );
   };

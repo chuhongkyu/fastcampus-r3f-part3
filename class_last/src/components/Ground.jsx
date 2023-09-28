@@ -27,8 +27,8 @@ export function Ground() {
   return (
     // <group rotation={[0, Math.PI / 2 + 30, 0]}>
     <group>
-      <mesh ref={ref} receiveShadow castShadow>
-        <planeGeometry args={[100, 100]} />
+      <mesh ref={ref} receiveShadow>
+        <planeGeometry args={[1000, 1000]} />
         <shadowMaterial attach='material' opacity={0.3} />
       </mesh>
       <Tile position={[0,0,0.4]}/>
