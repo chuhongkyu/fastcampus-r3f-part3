@@ -6,7 +6,7 @@ export function Arrow (){
 
     return(
         <motion.group 
-            position={[0.7,-2, 1.4]} 
+            position={[0.7,-2, 1.6]} 
             rotation={[-Math.PI/2,0, 0]}
             animate={{y: [-2, 0], scale: [0,1]}}
             transition={{duration: 0.3, delay: 2.5}}

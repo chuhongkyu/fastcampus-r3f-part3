@@ -12,10 +12,10 @@ export function Description (){
 
     return(
         <motion.group 
-            position={[0.5,-2, 0.8]} 
+            position={[0.5,-2, 1.2]} 
             rotation={[-Math.PI/2,0, 0]}
             animate={{y: [-2, 0], scale: [0,1]}}
-            transition={{duration: 0.3, delay: 2.5}}
+            transition={{duration: 0.3, delay: 3}}
             onAnimationComplete={onComplete}
             >
             <Text3D 

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion-3d";
 
-export function Tile({position}) {
+export function Tile({position, rotation}) {
     const positions = [0,1,2,3,4,5,6,7,8,9,10,11]
 
     const x = position[0]
@@ -10,6 +10,7 @@ export function Tile({position}) {
     return(
       <motion.group
           position={position}
+          rotation={rotation}
           animate={{ y: [10, 0] }}
           transition={{ delay: 1, duration: 0.3 }}
         >

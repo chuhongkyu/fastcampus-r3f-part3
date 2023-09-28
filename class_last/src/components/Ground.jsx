@@ -32,6 +32,10 @@ export function Ground() {
         <shadowMaterial attach='material' opacity={0.3} />
       </mesh>
       <Tile position={[0,0,0.4]}/>
+      <Tile position={[0,0,0.4]} rotation={[0,Math.PI/2,0]}/>
+      <Tile position={[0,0,0.4]} rotation={[0,-Math.PI/2,0]}/>
+      <Tile position={[2.5,0,0.4]}/>
+      <Tile position={[-2.5,0,0.4]}/>
       <Tree01 position={[-1, 0, -0.4]} scale={[0.3, 1, 0.3]}/>
       <Tree01 position={[1, 0, -0.4]} scale={[0.3, 1, 0.3]} />
       <Tree02 position={[-3, 0, -0.4]} scale={[0.3, 1, 0.3]}/>

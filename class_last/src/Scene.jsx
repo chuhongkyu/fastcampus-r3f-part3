@@ -14,7 +14,7 @@ export function Scene() {
 
   return (
     <Suspense fallback={<Loading/>}>
-      <Stats/>
+      {/* <Stats/> */}
       <Lights color={0xff9900}/>
 
       {/* <AccumulativeShadows temporal frames={60} color="orange" colorBlend={2} toneMapped={true} alphaTest={0.75} opacity={2} scale={12}>

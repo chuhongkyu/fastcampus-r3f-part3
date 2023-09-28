@@ -16,8 +16,9 @@ const carModelUrl = process.env.PUBLIC_URL + "/assets/models/body.glb";
 useGLTF.preload(carModelUrl)
 
 export function Car() {
-  const {pivot} = useFollowCam()
-  const [stage, setStage] = useRecoilState(stage1);
+  const { camera } = useThree()
+  const { pivot } = useFollowCam()
+  const [ stage, setStage] = useRecoilState(stage1);
   const isStart = useRecoilValue(onStartScene);
 
   let result = useLoader(
@@ -25,8 +26,6 @@ export function Car() {
     carModelUrl,
   ).scene;
   
-
-
   const position = [0, 1, 0];
   const width = 0.15;
   const height = 0.1;
@@ -73,14 +72,15 @@ export function Car() {
   }, [result]);
 
   useFrame(() =>{
-    if(isStart){
-      const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
-      pivot.position.lerp(chassisPosition,0.5)
-    }
+    if(isStart) makeFollowCam()
     makeStage()
   })
 
-
+  function makeFollowCam(){
+      const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
+      pivot.position.lerp(chassisPosition,0.5)
+      camera.lookAt(chassisPosition)
+  }
   
   function makeStage(){
     const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);

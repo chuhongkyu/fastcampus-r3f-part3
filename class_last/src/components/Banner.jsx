@@ -1,5 +1,6 @@
 import { useBox } from "@react-three/cannon";
 import { Html, useTexture } from "@react-three/drei";
+import { motion } from "framer-motion-3d";
 import { useEffect, useState } from "react";
 
 export function Banner({ onCollide, position, mass = 1, size = [5, 2, 2], isTrigger = false}) {
@@ -30,7 +31,7 @@ export function Banner({ onCollide, position, mass = 1, size = [5, 2, 2], isTrig
     
     return (
             <mesh
-                ref={ref} position={position}
+                ref={ref} 
                 castShadow
                 onClick={onHandleHistory}
             >
