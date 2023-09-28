@@ -11,7 +11,7 @@ export function Ball({ position }) {
   const [ref] = useSphere(() => ({
     position,
     args: [0.1],
-    mass: 0.001,
+    mass: 10,
   }));
 
   return (

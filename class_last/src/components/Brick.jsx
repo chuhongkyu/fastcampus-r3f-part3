@@ -6,7 +6,7 @@ export function Brick({position,rotation}) {
   const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/assets/models/brick.glb`);
 
   const [ref] = useBox(() => ({ 
-    mass: 0.01,
+    mass: 1,
     position: position,
     args:[0.322,0.18,0.16],
     rotation: rotation,
