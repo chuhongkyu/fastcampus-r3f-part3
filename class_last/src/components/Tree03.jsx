@@ -12,8 +12,16 @@ const Tree03 = React.memo(({ position, scale }) => {
         position,
         type: "Static",
         mass: 5,
-        onCollide: ()=> setInfo(true)
+        onCollide: handleCollision
     }));
+
+    const handleCollision = (e) => {
+        const { body } = e;
+        console.log(body)
+        if (body.name === "chassisBody") {
+            setInfo(true);
+        }
+    };
 
     useEffect(() => {
         let timeout;

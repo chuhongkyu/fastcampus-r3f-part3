@@ -17,17 +17,19 @@ useGLTF.preload(carModelUrl)
 export function Car() {
   const [stage, setStage] = useRecoilState(stage1);
   const isStart = useRecoilValue(onStartScene);
-  const camera = useThree(state => state.camera)
+  const camera = useThree(state => state.camera);
 
   let result = useLoader(
     GLTFLoader,
     carModelUrl,
   ).scene;
   
+
+
   const position = [0, 1, 0];
   const width = 0.15;
   const height = 0.1;
-  const front = 0.15;
+  const front = 0.16;
   const wheelRadius = 0.05;
 
   const chassisBodyArgs = [width, height, front * 2];
@@ -50,6 +52,7 @@ export function Car() {
       chassisBody,
       wheelInfos,
       wheels,
+      
     }),
     useRef(null),
   );
@@ -60,10 +63,10 @@ export function Car() {
     if (!result) return;
 
     let mesh = result;
-    mesh.scale.set(0.1, 0.13, 0.14);
-    mesh.children[0].rotation.set(0, Math.PI/2, 0);
-    mesh.children[0].position.set(0, 0.5, 0.4);
-    mesh.children[0].children.map((el)=>{
+    mesh?.scale.set(0.1, 0.13, 0.15);
+    mesh?.children[0].rotation.set(0, Math.PI/2, 0);
+    mesh?.children[0].position.set(0, 0.5, 0.4);
+    mesh?.children[0].children.map((el)=>{
       el.children[0].castShadow = true;
     })
   }, [result]);
@@ -77,10 +80,12 @@ export function Car() {
       const offset = new Vector3(1.5, 2, 3);
       const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody?.current?.matrixWorld);
       const targetPosition = chassisPosition?.clone();
-      camera?.lookAt(chassisPosition);
-
-      camera.position.x = offset.x + targetPosition.x;
-      camera.position.z = offset.z + targetPosition.z;
+      if(camera){
+        camera.lookAt(chassisPosition);
+        camera.position.x = offset.x + targetPosition?.x;
+        camera.position.z = offset.z + targetPosition?.z;
+      }
+      
       
       if ( Math.abs(4.5 - chassisPosition.x) < 2 && Math.abs(4.5 - chassisPosition.z) < 2){
         setStage(true);
