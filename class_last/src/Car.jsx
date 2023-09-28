@@ -72,15 +72,15 @@ export function Car() {
     makeCamera()
   })
 
-  const smoothFactor = 0.1;
-
   function makeCamera(){
     if(isStart){
       const offset = new Vector3(1.5, 2, 3);
       const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody?.current?.matrixWorld);
-      const targetPosition = chassisPosition?.clone().add(offset);
+      const targetPosition = chassisPosition?.clone();
       camera?.lookAt(chassisPosition);
-      camera?.position?.lerp(targetPosition, smoothFactor);
+
+      camera.position.x = offset.x + targetPosition.x;
+      camera.position.z = offset.z + targetPosition.z;
       
       if ( Math.abs(4.5 - chassisPosition.x) < 2 && Math.abs(4.5 - chassisPosition.z) < 2){
         setStage(true);
