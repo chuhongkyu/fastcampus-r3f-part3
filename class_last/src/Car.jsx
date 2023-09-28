@@ -1,6 +1,6 @@
 import { useBox, useRaycastVehicle } from "@react-three/cannon";
 import { useFrame, useLoader, useThree } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useWheels } from "./utils/useWheels";
 import { useControls } from "./utils/useControls";
@@ -10,14 +10,15 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { onStartScene, stage1 } from "./utils/atom";
 import { useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
+import useFollowCam from "./utils/useFollowCam"
 
 const carModelUrl = process.env.PUBLIC_URL + "/assets/models/body.glb";
 useGLTF.preload(carModelUrl)
 
 export function Car() {
+  const {pivot} = useFollowCam()
   const [stage, setStage] = useRecoilState(stage1);
   const isStart = useRecoilValue(onStartScene);
-  const camera = useThree(state => state.camera);
 
   let result = useLoader(
     GLTFLoader,
@@ -72,26 +73,21 @@ export function Car() {
   }, [result]);
 
   useFrame(() =>{
-    makeCamera()
+    if(isStart){
+      const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
+      pivot.position.lerp(chassisPosition,0.5)
+    }
+    makeStage()
   })
 
-  function makeCamera(){
-    if(isStart){
-      const offset = new Vector3(1.5, 2, 3);
-      const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody?.current?.matrixWorld);
-      const targetPosition = chassisPosition?.clone();
-      if(camera){
-        camera.lookAt(chassisPosition);
-        camera.position.x = offset.x + targetPosition?.x;
-        camera.position.z = offset.z + targetPosition?.z;
-      }
-      
-      
-      if ( Math.abs(4.5 - chassisPosition.x) < 2 && Math.abs(4.5 - chassisPosition.z) < 2){
-        setStage(true);
-      }else{
-        setStage(false);
-      }
+
+  
+  function makeStage(){
+    const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
+    if ( Math.abs(4.5 - chassisPosition.x) < 2 && Math.abs(4.5 - chassisPosition.z) < 2){
+      setStage(true);
+    }else{
+      setStage(false);
     }
   }
 
