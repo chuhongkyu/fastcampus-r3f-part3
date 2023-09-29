@@ -1,11 +1,13 @@
 import { useBox } from "@react-three/cannon";
+import { useFrame, useThree } from "@react-three/fiber";
 import { Html, useGLTF, useTexture } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import { useRecoilState } from "recoil";
-import { stage1 } from "../utils/atom";
+import { openPopup, stage1 } from "../utils/atom";
 
 export const MotionStage = ({position}) => {
     const texture = useTexture(`${process.env.PUBLIC_URL}/assets/images/github.webp`);
+    const { camera } = useThree();
     const [ref] = useBox(()=>({
         args: [1,1,0.3],
         position,
@@ -13,6 +15,7 @@ export const MotionStage = ({position}) => {
         mass: 5,
     }))
     const [stage] = useRecoilState(stage1);
+    const [ isPopup, setPopup ] = useRecoilState(openPopup);
     const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/assets/models/popup.glb`)
 
     const x = position[0];

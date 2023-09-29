@@ -25,14 +25,14 @@ export function Scene() {
           <color attach="background" args={['rgb(250, 220, 123)']} />
           <Lights/>
           <Physics broadphase="SAP" gravity={[0, -2.6, 0]}>
-            <Suspense fallback={null}>
+            <Suspense fallback={<Loading/>}>
               {/* <Stats/> */}
               <Ground />
               {onReset ? <Car /> : null}
             </Suspense>
           </Physics>
       </Canvas>
-      <Loader />
+      {/* <Loader /> */}
       <ResetBtn/>
     </>
   )

@@ -1,7 +1,6 @@
 import { useBox, useRaycastVehicle } from "@react-three/cannon";
 import { useFrame, useLoader, useThree } from "@react-three/fiber";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useWheels } from "./utils/useWheels";
 import { useControls } from "./utils/useControls";
 import { Vector3 } from "three";
@@ -11,12 +10,11 @@ import { onStartScene, openPopup, stage1 } from "./utils/atom";
 import { motion } from "framer-motion-3d";
 import useFollowCam from "./utils/useFollowCam"
 import { CarBody } from "./components/CarBody";
-import { Shadow } from "@react-three/drei";
 
 export function Car() {
-  const { pivot } = useFollowCam()
-  const [ stage, setStage] = useRecoilState(stage1);
-  const [isPopup, setPopup] = useRecoilState(openPopup);
+  const { pivot } = useFollowCam();
+  const [ stage, setStage ] = useRecoilState(stage1);
+  const [ isPopup, setPopup ] = useRecoilState(openPopup);
   const isStart = useRecoilValue(onStartScene);
 
   const position = [0, 1, 0];
@@ -66,7 +64,6 @@ export function Car() {
     const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
     if ( Math.abs(4.5 - chassisPosition.x) < 2 && Math.abs(4.5 - chassisPosition.z) < 2){
       setStage(true);
-      
     }else{
       setStage(false);
       setPopup(false)

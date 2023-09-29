@@ -63,8 +63,6 @@ export const useControls = (vehicleApi, chassisApi) => {
 
     if (controls.Enter && motionStage) {
       setPopup(true)
-    }else{
-
     }
   }, [controls, vehicleApi, chassisApi]);
 
