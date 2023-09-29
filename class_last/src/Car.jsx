@@ -7,16 +7,16 @@ import { useControls } from "./utils/useControls";
 import { Vector3 } from "three";
 import { Wheel } from "./components/Wheel";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { onStartScene, stage1 } from "./utils/atom";
+import { onStartScene, openPopup, stage1 } from "./utils/atom";
 import { motion } from "framer-motion-3d";
 import useFollowCam from "./utils/useFollowCam"
 import { CarBody } from "./components/CarBody";
 import { Shadow } from "@react-three/drei";
 
 export function Car() {
-  const { camera } = useThree()
   const { pivot } = useFollowCam()
   const [ stage, setStage] = useRecoilState(stage1);
+  const [isPopup, setPopup] = useRecoilState(openPopup);
   const isStart = useRecoilValue(onStartScene);
 
   const position = [0, 1, 0];
@@ -66,8 +66,10 @@ export function Car() {
     const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
     if ( Math.abs(4.5 - chassisPosition.x) < 2 && Math.abs(4.5 - chassisPosition.z) < 2){
       setStage(true);
+      
     }else{
       setStage(false);
+      setPopup(false)
     }
   }
 
@@ -86,7 +88,6 @@ export function Car() {
           <Wheel castShadow wheelRef={wheels[1]} lefSide={true}/>
           <Wheel castShadow wheelRef={wheels[2]}/>
           <Wheel castShadow wheelRef={wheels[3]} lefSide={true}/>
-          
         </motion.group>
     </>
   );

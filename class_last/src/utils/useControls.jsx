@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { openPopup, stage1 } from "./atom";
+
 
 export const useControls = (vehicleApi, chassisApi) => {
+  const motionStage = useRecoilValue(stage1);
+  const [isPopup, setPopup] = useRecoilState(openPopup);
   let [controls, setControls] = useState({
   });
 
@@ -54,6 +59,18 @@ export const useControls = (vehicleApi, chassisApi) => {
       for (let i = 0; i < 4; i++) {
         vehicleApi.setSteeringValue(0, i);
       }
+    }
+
+    if (controls.Enter && motionStage) {
+      vehicleApi.setBrake(160, 0);
+      vehicleApi.setBrake(160, 1);
+      vehicleApi.setBrake(160, 2);
+      vehicleApi.setBrake(160, 3);
+      setPopup(true)
+    }else{
+      vehicleApi.setBrake(0, 0);
+      vehicleApi.setBrake(0, 1);
+      vehicleApi.setBrake(0, 2);
     }
   }, [controls, vehicleApi, chassisApi]);
 
