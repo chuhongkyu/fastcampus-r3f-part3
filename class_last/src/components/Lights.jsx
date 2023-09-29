@@ -18,8 +18,8 @@ export const Lights = ({ color }) => {
       <directionalLight 
           castShadow
           intensity={0.8}
-          shadow-mapSize-height={1024}
-          shadow-mapSize-width={1024}
+          shadow-mapSize-height={512}
+          shadow-mapSize-width={512}
           position={[2, 5, -2]}
           color="white"
         />

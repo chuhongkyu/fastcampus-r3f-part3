@@ -31,7 +31,7 @@ export const MotionStage = ({position}) => {
                         duration: 2,
                         ease:"easeInOut",
                         delay: 0.3,
-                        repeat: 1,
+                        repeat: Infinity,
                     }} : {
                     opacity: 0.1, 
                     y: 0.05,
@@ -44,7 +44,7 @@ export const MotionStage = ({position}) => {
                 <meshBasicMaterial transparent color="white" opacity={0.3}/>
             </motion.mesh>
             <mesh
-                position={[x,y,z+1]}
+                position={[x,y+0.1,z+1]}
                 rotation-x={-Math.PI/2}
                 scale={0.5}
                 >

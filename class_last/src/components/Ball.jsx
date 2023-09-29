@@ -11,7 +11,7 @@ export function Ball({ position }) {
   const [ref] = useSphere(() => ({
     position,
     args: [0.1],
-    mass: 10,
+    mass: 1,
     onCollide: handleCollision
   }));
 

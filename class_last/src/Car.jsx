@@ -8,10 +8,10 @@ import { Vector3 } from "three";
 import { Wheel } from "./components/Wheel";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { onStartScene, stage1 } from "./utils/atom";
-import { useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import useFollowCam from "./utils/useFollowCam"
 import { CarBody } from "./components/CarBody";
+import { Shadow } from "@react-three/drei";
 
 export function Car() {
   const { camera } = useThree()
@@ -77,14 +77,16 @@ export function Car() {
           initial={{scale: 0, y: 0.5}}
           animate={isStart ? {scale: 1, y: 0}: {scale: 0, y: 0.5}}
           ref={vehicle} 
-          name="vehicle">
+          name="vehicle"
+          >
           <group ref={chassisBody} name="chassisBody">
             <CarBody/>
           </group>
-          <Wheel wheelRef={wheels[0]}/>
-          <Wheel wheelRef={wheels[1]} lefSide={true}/>
-          <Wheel wheelRef={wheels[2]}/>
-          <Wheel wheelRef={wheels[3]} lefSide={true}/>
+          <Wheel castShadow wheelRef={wheels[0]}/>
+          <Wheel castShadow wheelRef={wheels[1]} lefSide={true}/>
+          <Wheel castShadow wheelRef={wheels[2]}/>
+          <Wheel castShadow wheelRef={wheels[3]} lefSide={true}/>
+          
         </motion.group>
     </>
   );
