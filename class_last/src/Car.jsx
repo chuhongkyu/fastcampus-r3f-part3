@@ -11,9 +11,7 @@ import { onStartScene, stage1 } from "./utils/atom";
 import { useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import useFollowCam from "./utils/useFollowCam"
-
-const carModelUrl = process.env.PUBLIC_URL + "/assets/models/body.glb";
-useGLTF.preload(carModelUrl)
+import { CarBody } from "./components/CarBody";
 
 export function Car() {
   const { camera } = useThree()
@@ -21,11 +19,6 @@ export function Car() {
   const [ stage, setStage] = useRecoilState(stage1);
   const isStart = useRecoilValue(onStartScene);
 
-  let result = useLoader(
-    GLTFLoader,
-    carModelUrl,
-  ).scene;
-  
   const position = [0, 1, 0];
   const width = 0.15;
   const height = 0.1;
@@ -59,18 +52,6 @@ export function Car() {
 
   useControls(vehicleApi, chassisApi);
 
-  useEffect(() => {
-    if (!result) return;
-
-    let mesh = result;
-    mesh?.scale.set(0.1, 0.13, 0.15);
-    mesh?.children[0].rotation.set(0, Math.PI/2, 0);
-    mesh?.children[0].position.set(0, 0.5, 0.4);
-    mesh?.children[0].children.map((el)=>{
-      el.children[0].castShadow = true;
-    })
-  }, [result]);
-
   useFrame(() =>{
     if(isStart) makeFollowCam()
     makeStage()
@@ -98,7 +79,7 @@ export function Car() {
           ref={vehicle} 
           name="vehicle">
           <group ref={chassisBody} name="chassisBody">
-            <primitive object={result}/>
+            <CarBody/>
           </group>
           <Wheel wheelRef={wheels[0]}/>
           <Wheel wheelRef={wheels[1]} lefSide={true}/>
