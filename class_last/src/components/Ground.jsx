@@ -19,18 +19,22 @@ export function Ground() {
   const [ref] = usePlane(
     () => ({ 
       type: 'Static', 
-      rotation: [-Math.PI / 2, 0, 0] }
-    ), 
+      material: 'ground',
+      rotation: [-Math.PI / 2, 0, 0] 
+    }), 
     useRef(null)
   );
 
   return (
     // <group rotation={[0, Math.PI / 2 + 30, 0]}>
     <group>
-      <mesh ref={ref} receiveShadow>
-        <planeGeometry args={[100, 100]} />
-        <shadowMaterial attach='material' opacity={0.3} />
-      </mesh>
+      <group ref={ref}>
+        <mesh receiveShadow>
+          <planeGeometry args={[100, 100]} />
+          <shadowMaterial attach='material' color="#aa7d39" />
+          {/* <shadowMaterial attach='material' opacity={0.3} /> */}
+        </mesh>
+      </group>
       <Tile position={[0,0,0.4]}/>
       <Tile position={[0,0,0.4]} rotation={[0,Math.PI/2,0]}/>
       <Tile position={[0,0,0.4]} rotation={[0,-Math.PI/2,0]}/>

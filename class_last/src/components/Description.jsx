@@ -19,14 +19,14 @@ export function Description (){
             onAnimationComplete={onComplete}
             >
             <Text3D 
-            letterSpacing={0.01} 
-            size={0.15} 
-            castShadow
-            font={fontUrl} 
-            height={0.02}
-            lineHeight={0.5} 
-            fontSize={0.1} 
-            characters="abcdefghijklmnopqrstuvwxyz0123456789!">
+                letterSpacing={0.01} 
+                size={0.15} 
+                castShadow
+                font={fontUrl} 
+                height={0.02}
+                lineHeight={0.5} 
+                fontSize={0.1} 
+                characters="abcdefghijklmnopqrstuvwxyz0123456789!">
                 How to Play
                 <meshStandardMaterial color="white"  />
             </Text3D>
