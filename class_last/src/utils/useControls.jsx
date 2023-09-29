@@ -62,15 +62,9 @@ export const useControls = (vehicleApi, chassisApi) => {
     }
 
     if (controls.Enter && motionStage) {
-      vehicleApi.setBrake(160, 0);
-      vehicleApi.setBrake(160, 1);
-      vehicleApi.setBrake(160, 2);
-      vehicleApi.setBrake(160, 3);
       setPopup(true)
     }else{
-      vehicleApi.setBrake(0, 0);
-      vehicleApi.setBrake(0, 1);
-      vehicleApi.setBrake(0, 2);
+
     }
   }, [controls, vehicleApi, chassisApi]);
 
