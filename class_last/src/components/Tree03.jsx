@@ -34,7 +34,7 @@ const Tree03 = React.memo(({ position, scale }) => {
     return(
         <group ref={ref}>
            <motion.mesh
-            animate={{ scale: [0, 0.2], y: [0,0.5]}}
+            animate={{ scale: [0, 0.2], y: [0,0.45]}}
             transition={{ delay: 2, duration: 0.3,}}
             geometry={nodes.tree_2.geometry} material={materials['Material.009']} position={[-0.223, 0.459, 0]} rotation={[-1.559, 0, 0]} scale={0}
             castShadow  />

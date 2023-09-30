@@ -17,7 +17,7 @@ export function Ball({ position }) {
 
   const handleCollision = (e) => {
       const { body } = e;
-      console.log(body)
+      // console.log(body)
       if (body.name == "chassisBody") {
           setInfo(true);
       }

@@ -17,18 +17,19 @@ const Letter = ({ offset, offsetY, offsetZ, mass = 1, text }) => {
   }
 
   return (
-    <mesh ref={ref} castShadow>
+    <mesh ref={ref}>
       <Text3D
         castShadow
         font={fontUrl} 
         color="white"
-        height={1}
+        height={0.2}
         lineHeight={0.5}
-        size={1}
+        size={0.2}
         fontSize={0.2} 
         letterSpacing={DEFAULT_LETTER_SPACING}
       >
         {text}
+        
       </Text3D>
     </mesh>
   );

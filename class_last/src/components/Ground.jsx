@@ -56,13 +56,6 @@ export function Ground() {
 
       <MotionStage position={[3,0,4]}/>
       <Banner position={[1,1,-5]}/>
-      {/* 
-
-      <Banner position={[5,0.2,-5]} scale={[10,2,1]}/>
-
-      <MotionStage position={[3,0,4]}/>
-
-       */}
 
       {/* <TextGroup/> */}
     </group>

@@ -15,6 +15,7 @@ export const useControls = (vehicleApi, chassisApi) => {
         ...controls, 
         [e.key]: true 
       }));
+      console.log('down',e);
     }
 
     const keyUpPressHandler = (e) => {
@@ -22,6 +23,7 @@ export const useControls = (vehicleApi, chassisApi) => {
         ...controls, 
         [e.key]: false 
       }));
+      console.log('프레스',e);
     }
   
     window.addEventListener("keydown", keyDownPressHandler);
@@ -61,10 +63,23 @@ export const useControls = (vehicleApi, chassisApi) => {
       }
     }
 
-    if (controls.Enter && motionStage) {
-      setPopup(true)
-    }
   }, [controls, vehicleApi, chassisApi]);
+
+  const onHandleHistory = () => {
+    const url = 'https://github.com/chuhongkyu'
+    window.open(url, "_blank")
+  }
+
+  useEffect(() => {
+    if (controls.Enter && motionStage) {
+      onHandleHistory();
+      setControls((prevControls) => ({
+        ...prevControls,
+        Enter: false,
+      }));
+    }
+  }, [controls, motionStage]);
+
 
   return controls;
 }
