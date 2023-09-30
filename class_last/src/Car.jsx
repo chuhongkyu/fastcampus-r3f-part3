@@ -14,7 +14,6 @@ import { CarBody } from "./components/CarBody";
 export function Car() {
   const { pivot } = useFollowCam();
   const [ stage, setStage ] = useRecoilState(stage1);
-  const [ isPopup, setPopup ] = useRecoilState(openPopup);
   const isStart = useRecoilValue(onStartScene);
 
   const position = [0, 1, 0];
@@ -62,11 +61,10 @@ export function Car() {
   
   function makeStage(){
     const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
-    if ( Math.abs(3.1 - chassisPosition.x) < 0.7 && Math.abs(5.3 - chassisPosition.z) < 0.6){
+    if ( Math.abs(3.1 - chassisPosition.x) < 0.7 && Math.abs(5.1 - chassisPosition.z) < 0.6){
       setStage(true);
     }else{
       setStage(false);
-      setPopup(false)
     }
   }
 
