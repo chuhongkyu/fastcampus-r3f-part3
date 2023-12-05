@@ -1,21 +1,19 @@
 import React, { useRef, useState } from 'react'
-import { useFrame } from '@react-three/fiber'
+// import { useBox } from "@react-three/cannon";
 
 export function Box(props) {
 
-  const meshRef = useRef()
+  // const [meshRef] = useBox(
+  //   () => ({ args: [1, 1, 1], mass: 1, ...props }),
+  //   useRef()
+  // )
 
   const [hovered, setHover] = useState(false)
-  const [active, setActive] = useState(false)
-
-  useFrame((_, delta) => (meshRef.current.rotation.y += delta * 0.5))
 
   return (
     <mesh
       {...props}
-      ref={meshRef}
-      scale={active ? 1.5 : 1}
-      onClick={() => setActive(!active)}
+      // ref={meshRef}
       onPointerOver={() => setHover(true)}
       onPointerOut={() => setHover(false)}>
       <boxGeometry args={[1, 1, 1]} />

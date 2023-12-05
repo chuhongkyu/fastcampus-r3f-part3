@@ -9,7 +9,7 @@ function Scene() {
         <ambientLight/>
         <directionalLight position={[0, 5, 5]} />
         <Box position={[0,1,0]}/>
-        <Ground/>
+        <Ground rotation={[-Math.PI/2,0,0]}/>
       </Canvas>
     </>
   );

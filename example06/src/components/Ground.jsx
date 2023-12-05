@@ -44,12 +44,13 @@ export function Ground() {
         <Tile position={[0,0,0.4]} rotation={[0,-Math.PI/2,0]}/>
         <Tile position={[2.5,0,0.4]}/>
         <Tile position={[-2.5,0,0.4]}/>
-        <Tree01 position={[-1, 0, -0.4]} scale={[0.3, 1, 0.3]}/>
-        <Tree01 position={[1, 0, -0.4]} scale={[0.3, 1, 0.3]} />
-        <Tree02 position={[-3, 0, -0.4]} scale={[0.3, 1, 0.3]}/>
-        <Tree02 position={[3, 0, -0.4]} scale={[0.3, 1, 0.3]} />
-        <Tree03 position={[-1, 0, 5]} scale={[0.3, 1, 0.3]}/>
-        <Tree03 position={[1, 0, 5]} scale={[0.3, 1, 0.3]} />
+
+        <Tree01 position={[-1, 0.4, -0.4]} scale={[0.3, 0.8, 0.3]}/>
+        <Tree01 position={[1, 0.4, -0.4]} scale={[0.3, 0.8, 0.3]} />
+        <Tree02 position={[-3, 0.4, -0.4]} scale={[0.3, 0.8, 0.3]}/>
+        <Tree02 position={[3, 0.4, -0.4]} scale={[0.3, 0.8, 0.3]} />
+        <Tree03 position={[-1, 0.4, 5]} scale={[0.3, 0.8, 0.3]}/>
+        <Tree03 position={[1, 0.4, 5]} scale={[0.3, 0.8, 0.3]} />
 
         <Description/>
         <Arrow />
@@ -62,19 +63,17 @@ export function Ground() {
         <Brick position={[-2.7, 2, 2]} />
         <Ball position={[-1, 0.5, 2.3]} />
 
-        <MotionStage position={[3,0,4]}/>
-        <MotionStage2 position={[-4,0,5.5]}/>
         <Road position={[-8.8,-0.06,1]} scale={0.04} rotation-y={Math.PI/2}/>
         <Road position={[-8.8,-0.06,-10]} scale={0.04} rotation-y={Math.PI/2}/>
-        <Tree01 position={[-6, 0,  0]} scale={[0.3, 1, 0.3]}/>
-        <Tree01 position={[-6, 0, -2]} scale={[0.3, 1, 0.3]} />
-        <Tree01 position={[-6, 0, -4]} scale={[0.3, 1, 0.3]} />
-        <Tree01 position={[-6, 0, -6]} scale={[0.3, 1, 0.3]} />
-        <Tree01 position={[-6, 0, -8]} scale={[0.3, 1, 0.3]} />
-        <Tree01 position={[-6, 0, -10]} scale={[0.3, 1, 0.3]} />
+        <Tree01 position={[-6, 0.4,  0]} scale={[0.3, 0.8, 0.3]}/>
+        <Tree01 position={[-6, 0.4, -2]} scale={[0.3, 0.8, 0.3]} />
+        <Tree01 position={[-6, 0.4, -4]} scale={[0.3, 0.8, 0.3]} />
+        <Tree01 position={[-6, 0.4, -6]} scale={[0.3, 0.8, 0.3]} />
+        <Tree01 position={[-6, 0.4, -8]} scale={[0.3, 0.8, 0.3]} />
+        <Tree01 position={[-6, 0.4, -10]} scale={[0.3, 0.8, 0.3]} />
         <Banner position={[1,1,-5]}/>
         
-        <RoadSign position={[-0.1,0.1,6.5]}/>
+        <RoadSign position={[-0.1, 0.46, 6.5]}/>
         <Ball2 position={[1,0.1,6]}/>
 
         <PlayGround position={[7, 0, 0.5]}/>
@@ -83,7 +82,10 @@ export function Ground() {
               position={[9, 1.5, 0.3]}
               rotation={[0, Math.PI / 2, 0]}
         />
-        <MotionStage3 position={[7, 0, -1]}/>
+
+        <MotionStage position={[3, 0.55,4]}/>
+        <MotionStage2 position={[-4, 0.55,5.5]}/>
+        <MotionStage3 position={[7, 0.55, -1]}/>
       </group>
     </>
    

@@ -1,17 +1,21 @@
 import React, { useRef } from 'react'
+import { usePlane } from "@react-three/cannon";
 
 export function Ground(props) {
 
-  const meshRef = useRef()
+  const [meshRef] = usePlane(
+    () => ({ args: [15, 15], mass: 1, type: 'Static', ...props}),
+    useRef()
+  )
+
   return (
     <mesh
     {...props}
-    rotation-x={-Math.PI/2}
     ref={meshRef} 
     receiveShadow
     >
     <planeGeometry args={[15, 15]} />
-    <meshStandardMaterial color="black" wireframe/>
+    <meshStandardMaterial color="white"/>
   </mesh>
   )
 }

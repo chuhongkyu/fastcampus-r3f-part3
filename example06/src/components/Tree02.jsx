@@ -41,9 +41,9 @@ const Tree02 = React.memo(({ position, scale }) => {
     return(
         <group ref={ref}>
            <motion.mesh
-            animate={{ scale: [0, 0.2], y: [0,0.55]}}
+            animate={{ scale: [0, 1], y: [-1, -0.4]}}
             transition={{ delay: 2, duration: 0.3,}}
-            geometry={nodes.tree_1.geometry} material={materials['Material.003']} position={[-0.019, 0.554, 0]} rotation={[-1.674, 0.004, 0.424]} scale={0}
+            geometry={nodes.tree_1.geometry} material={materials['Material.003']} scale={0}
             castShadow  />
             {info ? <Html center><div className="information">나무...</div></Html>  : null}
             <PositionalAudio

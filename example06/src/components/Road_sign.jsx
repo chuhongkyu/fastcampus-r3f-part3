@@ -38,10 +38,10 @@ export function RoadSign({position}) {
 
   return (
     <group ref={ref}>
-      <mesh castShadow position={[0,-0.08,0]} scale={0.2} geometry={nodes.Object_1_1.geometry} material={materials.Wood} />
+      <mesh castShadow position={[0,-0.45,0]} scale={0.2} geometry={nodes.Object_1_1.geometry} material={materials.Wood} />
       <motion.group
       scale={0.2}
-      position={[0,-0.08,0]}
+      position={[0,-0.48,0]}
       animate={active? {rotateY: 4}: {rotateY: -1}}
       transition={{duration: 0.5, type: "spring"}}
       >

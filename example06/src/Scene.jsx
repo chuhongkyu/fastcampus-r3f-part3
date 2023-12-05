@@ -7,7 +7,7 @@ import { Loading } from "./components/Loading";
 import { useRecoilValue } from "recoil";
 import { onResetCar, onStartScene } from "./utils/atom";
 import { Canvas } from "@react-three/fiber";
-import { Physics } from "@react-three/cannon";
+import { Physics, Debug } from "@react-three/cannon";
 import ResetBtn from "./components/ResetBtn";
 
 export function Scene() {
@@ -23,11 +23,13 @@ export function Scene() {
           <fog attach="fog" args={['#a97629', 10, 10]} />
           <Lights/>
           <Physics broadphase="SAP" gravity={[0, -2.6, 0]} allowSleep>
-            <Suspense fallback={<Loading/>}>
-              {/* <Stats/> */}
-              <Ground />
-              {onReset ? <Car /> : null}
-            </Suspense>
+            <Debug color="green">
+              <Suspense fallback={<Loading/>}>
+                {/* <Stats/> */}
+                <Ground />
+                {onReset ? <Car /> : null}
+              </Suspense>
+            </Debug>
           </Physics>
       </Canvas>
       {isStart && <ResetBtn/>}
