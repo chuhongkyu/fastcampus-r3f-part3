@@ -23,13 +23,11 @@ export function Scene() {
           <fog attach="fog" args={['#a97629', 10, 10]} />
           <Lights/>
           <Physics broadphase="SAP" gravity={[0, -2.6, 0]} allowSleep>
-            <Debug color="green">
-              <Suspense fallback={<Loading/>}>
-                {/* <Stats/> */}
-                <Ground />
-                {onReset ? <Car /> : null}
-              </Suspense>
-            </Debug>
+            <Suspense fallback={<Loading/>}>
+              {/* <Stats/> */}
+              <Ground />
+              {onReset ? <Car /> : null}
+            </Suspense>
           </Physics>
       </Canvas>
       {isStart && <ResetBtn/>}
