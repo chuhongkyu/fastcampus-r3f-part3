@@ -20,11 +20,6 @@ export const onStartScene = atom({
     default: false,
 });
 
-export const onGameStart = atom({
-    key: 'game',
-    default: false,
-});
-
 export const onResetCar = atom({
     key: 'isCar',
     default: true,

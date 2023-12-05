@@ -1,11 +1,11 @@
 import { useBox, useRaycastVehicle } from "@react-three/cannon";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import { useWheels } from "./utils/useWheels";
 import { useControls } from "./utils/useControls";
 import { Vector3 } from "three";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { onGameStart, onStartScene, stage1, stage2 } from "./utils/atom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { onStartScene, stage1, stage2 } from "./utils/atom";
 import { motion } from "framer-motion-3d";
 import useFollowCam from "./utils/useFollowCam"
 import { CarModel } from "./components/CarModel";
@@ -15,19 +15,17 @@ const FORWARD_BOUNDARY = 5.5;
 const BACKWARD_BOUNDARY = -6;
 
 export function Car() {
-  const game = useRecoilValue(onGameStart);
-  const { camera } = useThree();
   const { pivot } = useFollowCam();
   const worldPosition = useMemo(() => new Vector3(), [])
-  const [ s1, setStage1 ] = useRecoilState(stage1);
-  const [ s2, setStage2 ] = useRecoilState(stage2);
+  const setStage1 = useSetRecoilState(stage1);
+  const setStage2 = useSetRecoilState(stage2);
   const isStart = useRecoilValue(onStartScene);
 
   const position = [0, 0.1, 0];
   let width, height, front, wheelRadius, mass;
 
   width = 0.16;
-  height = 0.15;
+  height = 0.18;
   front = 0.17;
   wheelRadius = 0.05;
   mass = 150;
@@ -109,10 +107,6 @@ export function Car() {
       setStage2(false);
     }
   }
-
-  useEffect(() => {
-    window?.document?.body.classList.remove("active")
-  }, [game])
 
   return (
     <>

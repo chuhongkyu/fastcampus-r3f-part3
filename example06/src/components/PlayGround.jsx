@@ -5,7 +5,7 @@ import { TextureLoader } from 'three'
 
 useGLTF.preload(`/assets/models/play_el.glb`)
 
-export function Play_el({position}) {
+export function PlayGround({position}) {
   const { nodes, materials } = useGLTF(`/assets/models/play_el.glb`)
   const matcapTexture = useMemo(() => {
     const textureLoader = new TextureLoader();

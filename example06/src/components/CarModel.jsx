@@ -6,7 +6,7 @@ export const CarModel = () => {
     const { nodes, materials } = useGLTF(`/assets/models/car_taxi.glb`)
     return(
         <>  
-            <group rotation={[0, Math.PI, 0]} scale={[0.38,0.36,0.46]} position={[0,-0.1,-0.02]}>   
+            <group rotation={[0, Math.PI, 0]} scale={[0.34,0.32,0.46]} position={[0,-0.12,-0.02]}>   
                 <group position={[-0.001, 0.246, -0.031]} rotation={[-1.576, 0, 0]} scale={0.32}>
                     <mesh castShadow geometry={nodes.Car01_2_DL1002_0.geometry} material={materials.mt_PalleteBR} position={[1.183, -0.742, 0.304]} />
                     <mesh castShadow geometry={nodes.Car01_2_DL1002_1.geometry} material={materials.mt_Pallete_Yellow} position={[1.183, -0.742, 0.304]} />

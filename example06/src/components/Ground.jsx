@@ -14,12 +14,10 @@ import { Brick } from "./Brick";
 import { MotionStage2 } from "./MotionStage2";
 import { RoadSign } from "./Road_sign";
 import { Road } from "./Road";
-import { Play_el } from "./Play_el";
+import { PlayGround } from "./PlayGround";
 import { Knot } from "./Knot";
 import { MotionStage3 } from "./MotionStage3";
 import { Ball2 } from "./Ball2";
-import { useRecoilValue } from "recoil";
-import { onGameStart } from "../utils/atom";
 
 
 export function Ground() {
@@ -79,7 +77,7 @@ export function Ground() {
         <RoadSign position={[-0.1,0.1,6.5]}/>
         <Ball2 position={[1,0.1,6]}/>
 
-        <Play_el position={[7, 0, 0.5]}/>
+        <PlayGround position={[7, 0, 0.5]}/>
         <Knot
               args={[0.6, 0.07]}
               position={[9, 1.5, 0.3]}

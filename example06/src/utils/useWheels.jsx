@@ -5,7 +5,7 @@ export const useWheels = (width, height, front, radius ) => {
   
   const wheels = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
-  const wheelPosition = height * 0.1
+  const wheelPosition = height * -0.05
   const wheelDampingRelaxation = 1;
   const wheelDampingCompression = 1;
 

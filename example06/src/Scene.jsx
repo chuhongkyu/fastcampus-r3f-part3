@@ -5,14 +5,14 @@ import { Car } from "./Car";
 import { Lights } from "./components/Lights";
 import { Loading } from "./components/Loading";
 import { useRecoilValue } from "recoil";
-import { onGameStart, onResetCar } from "./utils/atom";
+import { onResetCar, onStartScene } from "./utils/atom";
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/cannon";
 import ResetBtn from "./components/ResetBtn";
 
 export function Scene() {
   const onReset = useRecoilValue(onResetCar);
-  const game = useRecoilValue(onGameStart);
+  const isStart = useRecoilValue(onStartScene);
 
   return (
     <>
@@ -27,15 +27,10 @@ export function Scene() {
               {/* <Stats/> */}
               <Ground />
               {onReset ? <Car /> : null}
-              
             </Suspense>
           </Physics>
       </Canvas>
-      {game ? (
-        <>
-        <ResetBtn/>
-        </>
-      ): null}
+      {isStart && <ResetBtn/>}
     </>
   )
 }

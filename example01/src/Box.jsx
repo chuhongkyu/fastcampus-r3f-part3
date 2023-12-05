@@ -8,7 +8,7 @@ export function Box(props) {
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
 
-  useFrame((_, delta) => (meshRef.current.rotation.y += delta))
+  useFrame((_, delta) => (meshRef.current.rotation.y += delta * 0.5))
 
   return (
     <mesh

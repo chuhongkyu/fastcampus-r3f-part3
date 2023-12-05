@@ -11,10 +11,6 @@ body, html, #root {
     background-blend-mode: screen;
 }
 
-body.active{
-  cursor: pointer;
-}
-
 .information{
   border-radius: 12px;
   padding: 5px 20px;
