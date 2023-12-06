@@ -15,7 +15,7 @@ export function Ground(props) {
     receiveShadow
     >
     <planeGeometry args={[15, 15]} />
-    <meshStandardMaterial color="white"/>
+    <meshStandardMaterial color="white" opacity={0} transparent/>
   </mesh>
   )
 }
