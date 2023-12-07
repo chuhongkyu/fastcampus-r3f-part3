@@ -19,7 +19,6 @@ export function PlayGround({position}) {
         nodes.play.geometry.attributes.position.array,
         nodes.play.geometry.index.array
       ],
-      mass: 1,
       type: 'Static',
       rotation: [0,Math.PI/2, 0],
       position
