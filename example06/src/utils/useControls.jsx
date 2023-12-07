@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { stage1 } from "./atom";
+import { onStartScene, stage1 } from "./atom";
 
 
 export const useControls = (vehicleApi, chassisApi) => {
   const motionStage = useRecoilValue(stage1);
+  const isStart = useRecoilValue(onStartScene);
 
   let engineForce = 120;
 
@@ -13,19 +14,23 @@ export const useControls = (vehicleApi, chassisApi) => {
 
   useEffect(() => {
     const keyDownPressHandler = (e) => {
-      setControls((controls) => ({ 
-        ...controls, 
-        [e.key]: true 
-      }));
-      // console.log('down',e);
+      if(isStart){
+        setControls((controls) => ({ 
+          ...controls, 
+          [e.key]: true 
+        }));
+        // console.log('down',e);
+      }
     }
 
     const keyUpPressHandler = (e) => {
-      setControls((controls) => ({ 
-        ...controls, 
-        [e.key]: false 
-      }));
-      // console.log('프레스',e);
+      if(isStart){
+        setControls((controls) => ({ 
+          ...controls, 
+          [e.key]: false 
+        }));
+        // console.log('프레스',e);
+      }
     }
   
     window.addEventListener("keydown", keyDownPressHandler);
@@ -34,7 +39,7 @@ export const useControls = (vehicleApi, chassisApi) => {
       window.removeEventListener("keydown", keyDownPressHandler);
       window.removeEventListener("keyup", keyUpPressHandler);
     }
-  }, []);
+  }, [isStart]);
   
 
 

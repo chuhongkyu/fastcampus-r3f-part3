@@ -26,7 +26,7 @@ export function Scene() {
             <Suspense fallback={<Loading/>}>
               {/* <Stats/> */}
               <Ground />
-              {onReset ? <Car /> : null}
+              {onReset & isStart ? <Car /> : null}
             </Suspense>
           </Physics>
       </Canvas>
