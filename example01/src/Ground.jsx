@@ -1,11 +1,10 @@
-import React, { useRef } from 'react'
+import React from 'react'
 // import { usePlane } from "@react-three/cannon";
 
 export function Ground(props) {
 
   // const [meshRef] = usePlane(
   //   () => ({ args: [15, 15], mass: 1, type: 'Static', ...props}),
-  //   useRef()
   // )
 
   return (
