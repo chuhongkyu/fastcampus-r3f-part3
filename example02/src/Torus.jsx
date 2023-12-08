@@ -2,7 +2,7 @@ import { useTrimesh } from "@react-three/cannon"
 import { useMemo } from "react"
 import { TorusGeometry } from "three"
 
-export function Knot(props) {
+export function Torus(props) {
     const geometry = useMemo(() => new TorusGeometry(0.5, 0.2, 16, 100), [])
 
     const [ref, api] = useTrimesh(() => ({
