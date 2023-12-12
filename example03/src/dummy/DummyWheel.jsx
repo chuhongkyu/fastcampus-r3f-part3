@@ -1,12 +1,12 @@
 const DummyWheel = ({ wheelRef, radius }) => {
-  return(
-    <group ref={wheelRef} scale={0.5}>
-        <mesh>
-            <cylinderGeometry args={[radius]} />
-            <meshBasicMaterial color="black"/>
-        </mesh>           
-    </group>
-  );
+    return(
+        <group ref={wheelRef}>
+            <mesh rotation={[0, 0, -Math.PI / 2]}>
+                <cylinderGeometry args={[radius,radius, 0.025, 16]} />
+                <meshNormalMaterial/>
+            </mesh>           
+        </group>
+    );
 };
 
 export default DummyWheel;

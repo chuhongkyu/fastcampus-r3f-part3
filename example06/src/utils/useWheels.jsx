@@ -49,7 +49,7 @@ export const useWheels = (width, height, front, radius ) => {
     },
   ];
 
-  const propsFunc = () => ({
+  const wheelFunc = () => ({
     collisionFilterGroup: 0,
     mass: 50,
     shapes: [
@@ -62,10 +62,10 @@ export const useWheels = (width, height, front, radius ) => {
     type: "Kinematic",
   });
 
-  useCompoundBody(propsFunc, wheels[0]);
-  useCompoundBody(propsFunc, wheels[1]);
-  useCompoundBody(propsFunc, wheels[2]);
-  useCompoundBody(propsFunc, wheels[3]);
+  useCompoundBody(wheelFunc, wheels[0]);
+  useCompoundBody(wheelFunc, wheels[1]);
+  useCompoundBody(wheelFunc, wheels[2]);
+  useCompoundBody(wheelFunc, wheels[3]);
 
   return [wheels, wheelInfos];
 };

@@ -3,14 +3,11 @@ import { useRecoilValue } from "recoil";
 import { onStartScene, stage1 } from "./atom";
 
 
-export const useControls = (vehicleApi, chassisApi) => {
+export const useVehicleControls = (vehicleApi, chassisApi) => {
   const motionStage = useRecoilValue(stage1);
   const isStart = useRecoilValue(onStartScene);
-
-  let engineForce = 120;
-
-  let [controls, setControls] = useState({
-  });
+  const [controls, setControls] = useState({});
+  const engineForce = 120;
 
   useEffect(() => {
     const keyDownPressHandler = (e) => {

@@ -2,7 +2,7 @@ import { useBox, useRaycastVehicle } from "@react-three/cannon";
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import { useWheels } from "./utils/useWheels";
-import { useControls } from "./utils/useControls";
+import { useVehicleControls } from "./utils/useVehicleControls";
 import { Vector3 } from "three";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { onStartScene, stage1, stage2 } from "./utils/atom";
@@ -60,7 +60,7 @@ export function Car() {
     chassisApi.velocity.subscribe((v) => (vehiclePos.current = v))
   }, [chassisApi]);
 
-  useControls(vehicleApi, chassisApi);
+  useVehicleControls(vehicleApi, chassisApi);
 
   useFrame(() => {
     if (vehiclePos.current[2] > FORWARD_BOUNDARY) {
