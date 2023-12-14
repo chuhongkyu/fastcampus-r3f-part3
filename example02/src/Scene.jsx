@@ -6,7 +6,7 @@ import { useControls } from "leva"
 import { Sphere } from "./Sphere";
 import { Cylinder } from "./Cylinder";
 import { Icosahedron } from "./Icosahedron";
-import { Knot } from "./Knot";
+import { Torus } from "./Torus";
 
 function Scene() {
   const gravity = useControls('Gravity', {
@@ -28,7 +28,7 @@ function Scene() {
             <Cylinder position={[-2,2,0]}/>
             <Box position={[0,2,0]}/>
             <Sphere  position={[2,2,0]}/>
-            <Knot position={[-1,2,2]}/>
+            <Torus position={[-1,2,2]}/>
             <Icosahedron position={[1,2,2]}/>
             <Ground rotation={[-Math.PI/2,0,0]}/>
           </Debug>
