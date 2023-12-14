@@ -1,9 +1,9 @@
 import { useSphere } from "@react-three/cannon";
 
 const DummyBall = (props) => {
-
+    const { args } = props;
     const [ref] = useSphere(()=> ({
-        args: [0.15],
+        args: args,
         mass: 1,
         type : "Dynamic",
         ...props
@@ -11,8 +11,8 @@ const DummyBall = (props) => {
 
     return(
         <mesh ref={ref}>
-            <sphereGeometry args={[0.15]}/>
-            <meshBasicMaterial color={"yellow"}/>
+            <sphereGeometry args={args}/>
+            <meshBasicMaterial color={"orange"} transparent opacity={0.5}/>
         </mesh>
     )
 }
