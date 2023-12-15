@@ -12,7 +12,7 @@ const DummyWall = (props) => {
     return(
         <mesh ref={ref}>
             <boxGeometry args={args}/>
-            <meshBasicMaterial color={"white"} transparent opacity={0.5}/>
+            <meshBasicMaterial color="white" transparent opacity={0.9}/>
         </mesh>
     )
 }

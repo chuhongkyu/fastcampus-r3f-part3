@@ -5,7 +5,6 @@ const DummyBox = (props) => {
     const [ref] = useBox(()=> ({
         args: args,
         mass: 10,
-        type : "Dynamic",
         ...props
     }))
 

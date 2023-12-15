@@ -1,12 +1,18 @@
 import { useBox, useCompoundBody, useRaycastVehicle } from "@react-three/cannon";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import DummyCarBody from "./dummy/DummyCarBody";
 import DummyWheel from "./dummy/DummyWheel";
 import { useControls } from "leva";
 import { useWheels } from "./utils/useWheels";
 import { useVehicleControls} from "./utils/useVehicleControls";
+import { useFrame } from "@react-three/fiber";
+import useFollowCam from "./utils/useFollowCam";
+import { Vector3 } from "three";
 
 const Car = () => {
+    const { pivot } = useFollowCam();
+    const worldPosition = useMemo(() => new Vector3(), [])
+
     const chassisBodyValue = useControls('chassisBody', {
       width: { value: 0.16, min: 0, max: 1,},
       height:  { value: 0.12, min: 0, max: 1,},
@@ -57,6 +63,15 @@ const Car = () => {
     );
 
     useVehicleControls(vehicleApi, chassisApi)
+
+    const makeFollowCam = ()=> {
+      chassisBody?.current.getWorldPosition(worldPosition)
+      pivot.position.lerp(worldPosition, 0.9)
+    }
+
+    useFrame(()=>{
+      makeFollowCam()
+    })
 
     return(
         <group ref={vehicle}>
