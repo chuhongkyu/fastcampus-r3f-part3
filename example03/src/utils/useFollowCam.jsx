@@ -2,7 +2,7 @@ import { useThree } from '@react-three/fiber'
 import { useEffect, useMemo } from 'react'
 import { Object3D } from 'three'
 
-export default function useFollowCam() {
+const useFollowCam = () => {
   // 현재 scene과 camera를 얻기 위해 useThree 훅을 사용합니다.
   const { scene, camera } = useThree()
   // Object3D 인스턴스를 memoize하여 pivot 포인트를 만듭니다.
@@ -33,3 +33,6 @@ export default function useFollowCam() {
   // 외부에서 pivot 포인트를 사용할 수 있도록 반환합니다.
   return { pivot }
 }
+
+
+export default useFollowCam;
