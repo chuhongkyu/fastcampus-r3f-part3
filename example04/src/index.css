@@ -3,4 +3,9 @@ body, html, #root {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background:
+    linear-gradient(rgb(241, 193, 79), transparent),
+    linear-gradient(to top left, rgb(254, 206, 49), transparent),
+    linear-gradient(to top right, rgb(252, 205, 96), transparent);
+  background-blend-mode: screen;
 }

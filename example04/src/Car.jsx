@@ -9,16 +9,12 @@ import { useFrame } from "@react-three/fiber";
 import useFollowCam from "./utils/useFollowCam";
 import { Vector3 } from "three";
 import { CarBody } from "./components/CarBody";
+import { Wheel } from "./components/Wheel";
 
 const Car = () => {
     const { pivot } = useFollowCam();
     const worldPosition = useMemo(() => new Vector3(), [])
 
-    const chassisBodyValue = useControls('chassisBody', {
-      width: { value: 0.16, min: 0, max: 1,},
-      height:  { value: 0.12, min: 0, max: 1,},
-      front: { value: 0.17, min: 0, max: 1,},
-    })
     const position = [0, 0.5, 0];
 
     let width, height, front, mass, wheelRadius;
@@ -78,12 +74,11 @@ const Car = () => {
         <group ref={vehicle}>
             <group ref={chassisBody}>
                 <CarBody />
-                {/* <DummyCarBody width={chassisBodyValue.width} height={chassisBodyValue.height} front={chassisBodyValue.front * 2}/> */}
             </group>
-            <DummyWheel wheelRef={wheels[0]} radius={wheelRadius}/>
-            <DummyWheel wheelRef={wheels[1]} radius={wheelRadius}/>
-            <DummyWheel wheelRef={wheels[2]} radius={wheelRadius}/>
-            <DummyWheel wheelRef={wheels[3]} radius={wheelRadius}/>
+            <Wheel wheelRef={wheels[0]} radius={wheelRadius}/>
+            <Wheel wheelRef={wheels[1]} radius={wheelRadius} rightSide={true}/>
+            <Wheel wheelRef={wheels[2]} radius={wheelRadius}/>
+            <Wheel wheelRef={wheels[3]} radius={wheelRadius} rightSide={true}/>
         </group>
     )
 }
