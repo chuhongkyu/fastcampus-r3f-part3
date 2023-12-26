@@ -1,14 +1,10 @@
-import React from 'react'
 import { usePlane } from "@react-three/cannon";
-import DummyBall from './dummy/DummyBall';
-import DummyBox from './dummy/DummyBox';
 import DummyWall from './dummy/DummyWall';
 import { Tree } from './components/Tree';
 import { Ball } from './components/Ball';
 import HowToPlay from './components/HowToPlay';
 
 export function Ground() {
-
   const [meshRef] = usePlane(
     () => ({ args: [15, 15], mass: 1, type: 'Static', rotation: [-Math.PI/2,0,0]}),
   )
