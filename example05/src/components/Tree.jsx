@@ -11,7 +11,7 @@ export function Tree(props) {
 
   const [ref] = useBox(()=> ({
     args: [0.3,1,0.3],
-    type: "Kinematic",
+    type: "Static",
     onCollide: handleCollision,
     ...props
   }),useRef(null))
