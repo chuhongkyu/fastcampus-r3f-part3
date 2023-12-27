@@ -32,6 +32,7 @@ const Car = () => {
         position,
         mass: mass,
         rotation: [0,Math.PI,0],
+        collisionFilterGroup: 5,
         shapes: [
           {
             args: chassisBodyArgs,

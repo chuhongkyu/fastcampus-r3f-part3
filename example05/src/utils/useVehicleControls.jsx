@@ -8,13 +8,13 @@ export const useVehicleControls = (vehicleApi, chassisApi) => {
             setControls((controls) => ({ 
                 ...controls, [e.key]: true 
             }));
-            console.log('Down',e)
+            // console.log('Down',e)
         }
         const KeUpPressHandler = (e) => {
             setControls((controls) => ({ 
                 ...controls, [e.key]: false,
             }));
-            console.log('Up',e)
+            // console.log('Up',e)
         }
 
         window.addEventListener('keydown', KeDownPressHandler);

@@ -9,3 +9,14 @@ body, html, #root {
     linear-gradient(to top right, rgb(252, 205, 96), transparent);
   background-blend-mode: screen;
 }
+
+
+.information{
+  border-radius: 12px;
+  padding: 5px 20px;
+  height: auto;
+  background: rgba(233, 48, 48, 0.6);
+  color: white;
+  white-space: nowrap;
+  font-size: 22px;
+}
