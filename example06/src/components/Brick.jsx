@@ -3,14 +3,14 @@ import { PositionalAudio, useGLTF } from '@react-three/drei'
 import { useBox } from '@react-three/cannon';
 import { TextureLoader } from 'three';
 import { useRecoilValue } from 'recoil';
-import { onStartScene } from '../utils/atom';
+import { isStartScene } from '../utils/atom';
 
 useGLTF.preload(`/assets/models/brick.glb`)
 
 export function Brick(props) {
   const { nodes } = useGLTF(`/assets/models/brick.glb`);
   const AudioRef = useRef(null);
-  const isStart = useRecoilValue(onStartScene);
+  const isStart = useRecoilValue(isStartScene);
   const matcapTexture = useMemo(() => {
     const textureLoader = new TextureLoader();
     const matcapTexture = textureLoader.load(`/assets/matcap/white.png`);

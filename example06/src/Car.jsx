@@ -5,7 +5,7 @@ import { useWheels } from "./utils/useWheels";
 import { useVehicleControls } from "./utils/useVehicleControls";
 import { Vector3 } from "three";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { onStartScene, stage1, stage2 } from "./utils/atom";
+import { isStartScene, stage1, stage2 } from "./utils/atom";
 import { motion } from "framer-motion-3d";
 import useFollowCam from "./utils/useFollowCam"
 import { CarModel } from "./components/CarModel";
@@ -19,7 +19,7 @@ export function Car() {
   const worldPosition = useMemo(() => new Vector3(), [])
   const setStage1 = useSetRecoilState(stage1);
   const setStage2 = useSetRecoilState(stage2);
-  const isStart = useRecoilValue(onStartScene);
+  const isStart = useRecoilValue(isStartScene);
 
   const position = [0, 0.1, 0];
   let width, height, front, wheelRadius, mass;

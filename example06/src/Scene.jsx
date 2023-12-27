@@ -5,14 +5,14 @@ import { Car } from "./Car";
 import { Lights } from "./components/Lights";
 import { Loading } from "./components/Loading";
 import { useRecoilValue } from "recoil";
-import { onResetCar, onStartScene } from "./utils/atom";
+import { onResetCar, isStartScene } from "./utils/atom";
 import { Canvas } from "@react-three/fiber";
 import { Physics, Debug } from "@react-three/cannon";
 import ResetBtn from "./components/ResetBtn";
 
 export function Scene() {
   const onReset = useRecoilValue(onResetCar);
-  const isStart = useRecoilValue(onStartScene);
+  const isStart = useRecoilValue(isStartScene);
 
   return (
     <>

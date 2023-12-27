@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const checkAtom = atom({
-    key: 'checkAtom',
-    default: '상태',
+export const isStartScene = atom({
+    key: 'isStart',
+    default: false,
 })

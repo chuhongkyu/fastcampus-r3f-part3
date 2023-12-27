@@ -4,11 +4,11 @@ import { Physics, Debug } from "@react-three/cannon";
 import Car from "./Car";
 import { useRecoilValue } from "recoil";
 import { useEffect } from "react";
-import { checkAtom } from "./utils/atom";
+import { isStartScene } from "./utils/atom";
 
 function Scene() {
-  const atom = useRecoilValue(checkAtom)
-  useEffect(()=>{ console.log(atom)},[atom])
+  const isStart = useRecoilValue(isStartScene)
+  useEffect(()=>{ console.log(isStart)},[isStart])
   return (
     <>
       <Canvas camera={{ fov:45, position:[1.5, 2, 4]}}>
@@ -16,7 +16,7 @@ function Scene() {
         <directionalLight position={[0, 5, 5]} />
         <Physics gravity={[0, -2.6, 0]}>
           <Debug>
-            <Car/>
+            {isStart && <Car/>}
             <Ground />
           </Debug>
         </Physics>

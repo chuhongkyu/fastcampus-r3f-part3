@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { onStartScene, stage1 } from "./atom";
+import { isStartScene, stage1 } from "./atom";
 
 
 export const useVehicleControls = (vehicleApi, chassisApi) => {
   const motionStage = useRecoilValue(stage1);
-  const isStart = useRecoilValue(onStartScene);
+  const isStart = useRecoilValue(isStartScene);
   const [controls, setControls] = useState({});
   const engineForce = 120;
 

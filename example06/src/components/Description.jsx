@@ -1,7 +1,7 @@
 import { Text3D } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import { useRecoilState } from "recoil";
-import { onStartScene } from "../utils/atom";
+import { isStartScene } from "../utils/atom";
 import { useMemo } from "react";
 import { TextureLoader } from "three";
 
@@ -12,7 +12,7 @@ export function Description (){
         const matcapTexture = textureLoader.load(`/assets/matcap/white.png`);
         return matcapTexture;
       }, []);
-    const [isStart, setStart ] = useRecoilState(onStartScene)
+    const [isStart, setStart ] = useRecoilState(isStartScene)
     const onComplete = ()=>{
         setStart(!isStart)
     }

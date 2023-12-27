@@ -15,7 +15,7 @@ export const openPopup = atom({
     default: false,
 });
 
-export const onStartScene = atom({
+export const isStartScene = atom({
     key: 'isStart',
     default: false,
 });

@@ -12,7 +12,7 @@ export function Ball(props) {
     mass: 1,
     type : "Dynamic",
     ...props
-}))
+}), useRef(null))
   
   return (
     <group ref={ref}>

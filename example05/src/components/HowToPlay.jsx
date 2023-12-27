@@ -1,7 +1,10 @@
-import { Text, Text3D } from "@react-three/drei";
+import { Text3D } from "@react-three/drei";
+import { motion } from "framer-motion-3d"
+import { useSetRecoilState } from "recoil";
+import { isStartScene } from "../utils/atom";
 
 const HowToPlay = () => {
-
+    const setIsStart = useSetRecoilState(isStartScene)
     const fontUrl = '/assets/fonts/Pretendard.json'
 
     const fontStyle = {
@@ -14,7 +17,13 @@ const HowToPlay = () => {
     }
 
     return(
-        <group position={[0.3,0,1]} rotation={[-Math.PI/2, 0, 0]}>
+        <motion.group 
+            position={[0.3,0,1]} 
+            rotation={[-Math.PI/2, 0, 0]}
+            animate={{y: [-2, 0], scale: [0,1]}}
+            transition={{delay: 1.5, duration: 0.3}}
+            onAnimationComplete={()=> setIsStart(true)}
+            >
             <Text3D
                 {...fontStyle}
                 >
@@ -37,7 +46,7 @@ const HowToPlay = () => {
                     <meshNormalMaterial/>
                 </Text3D>
             </group>
-        </group>
+        </motion.group>
     )
 }
 
