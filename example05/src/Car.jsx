@@ -73,7 +73,7 @@ const Car = () => {
 
     return(
         <group ref={vehicle}>
-            <group ref={chassisBody}>
+            <group ref={chassisBody} name="chassisBody">
                 <CarBody />
             </group>
             <Wheel wheelRef={wheels[0]} radius={wheelRadius}/>

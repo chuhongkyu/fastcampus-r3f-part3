@@ -21,7 +21,6 @@ export function RoadSign({position}) {
 
   const handleCollision = (e) => {
     const { body } = e;
-    // console.log(body)
     if (body.name === "chassisBody") {
       setActive(true)
     }
@@ -38,7 +37,7 @@ export function RoadSign({position}) {
 
   return (
     <group ref={ref}>
-      <mesh castShadow position={[0,-0.45,0]} scale={0.2} geometry={nodes.Object_1_1.geometry} material={materials.Wood} />
+      <mesh castShadow position={[0,-0.49,0]} scale={0.2} geometry={nodes.Object_1_1.geometry} material={materials.Wood} />
       <motion.group
       scale={0.2}
       position={[0,-0.48,0]}
