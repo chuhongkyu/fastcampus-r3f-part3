@@ -1,10 +1,8 @@
 import { useBox } from "@react-three/cannon";
-import { Html, useGLTF, useTexture } from "@react-three/drei";
+import { useGLTF, useTexture } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
-import { useRecoilState } from "recoil";
-import { stage2 } from "../utils/atom";
-import { AnimatePresence } from "framer-motion";
 import { BoxDrop } from "./BoxDrop";
+import Picture from "./Picture";
 
 useGLTF.preload(`/assets/models/popup.glb`)
 
@@ -23,7 +21,6 @@ export const MotionStage2 = ({position}) => {
         rotation: [0,Math.PI/2,0]
     }))
 
-    const [stage] = useRecoilState(stage2);
     const { nodes, materials } = useGLTF(`/assets/models/popup.glb`)
 
     return(
@@ -33,16 +30,7 @@ export const MotionStage2 = ({position}) => {
                 scale={0.3}
                 position={position} rotation-y={Math.PI/2}>
                 <mesh castShadow geometry={nodes.body.geometry} material={materials.Material} position={[0.004, 0.15, 0.065]} scale={[1.957, -1.036, 0.135]} />
-                <mesh
-                    castShadow 
-                    geometry={nodes.picture.geometry} 
-                    material={nodes.picture.material} 
-                    position={[0.013, 0.15, 0.21]}
-                    scale={[-1.755, 0.528, 0.911]}
-                    rotation={[1.57, Math.PI, 0]} 
-                    >
-                    <meshBasicMaterial map={texture} />
-                </mesh>
+                <Picture nodes={nodes} texture={texture}/>   
             </motion.group>
             <mesh position={[x+1,y-0.6,z]} rotation-x={-Math.PI/2}>
                 <planeGeometry args={[1,1]}/>

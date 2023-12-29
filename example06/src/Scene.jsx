@@ -1,4 +1,3 @@
-import { Stats } from "@react-three/drei";
 import { Suspense } from "react";
 import { Ground } from "./components/Ground";
 import { Car } from "./Car";
@@ -7,7 +6,7 @@ import { Loading } from "./components/Loading";
 import { useRecoilValue } from "recoil";
 import { onResetCar, isStartScene } from "./utils/atom";
 import { Canvas } from "@react-three/fiber";
-import { Physics, Debug } from "@react-three/cannon";
+import { Physics } from "@react-three/cannon";
 import ResetBtn from "./components/ResetBtn";
 
 export function Scene() {

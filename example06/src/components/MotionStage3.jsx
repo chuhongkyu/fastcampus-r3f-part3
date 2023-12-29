@@ -1,6 +1,7 @@
 import { useBox } from "@react-three/cannon";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
+import Picture from "./Picture";
 
 useGLTF.preload(`/assets/models/popup.glb`)
 
@@ -23,16 +24,7 @@ export const MotionStage3 = ({position}) => {
                 scale={0.3}
                 position={position} rotation-y={Math.PI/2}>
                 <mesh castShadow geometry={nodes.body.geometry} material={materials.Material} position={[0.004, 0.15, 0.065]} scale={[1.957, -1.036, 0.135]} />
-                <mesh
-                    castShadow 
-                    geometry={nodes.picture.geometry} 
-                    material={nodes.picture.material} 
-                    position={[0.013, 0.15, 0.21]}
-                    scale={[-1.755, 0.528, 0.911]}
-                    rotation={[1.57, Math.PI, 0]} 
-                    >
-                    <meshBasicMaterial map={texture} />
-                </mesh>
+                <Picture nodes={nodes} texture={texture}/>   
             </motion.group>
         </group>
     )
