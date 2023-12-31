@@ -10,10 +10,14 @@ import useFollowCam from "./utils/useFollowCam";
 import { Vector3 } from "three";
 import { CarBody } from "./components/CarBody";
 import { Wheel } from "./components/Wheel";
+import { useSetRecoilState } from "recoil"
+import { stage1, stage2 } from "./utils/atom";
 
 const Car = () => {
     const { pivot } = useFollowCam();
     const worldPosition = useMemo(() => new Vector3(), [])
+    const setStage1 = useSetRecoilState(stage1);
+    const setStage2 = useSetRecoilState(stage2);
 
     const position = [0, 0.5, 0];
 
@@ -67,8 +71,28 @@ const Car = () => {
       pivot.position.lerp(worldPosition, 0.9)
     }
 
+    const makeStage1 = () => {
+      const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
+      if ( Math.abs(3.1 - chassisPosition.x) < 0.7 && Math.abs(5.1 - chassisPosition.z) < 0.6){
+        setStage1(true);
+      }else{
+        setStage1(false);
+      }
+    }
+
+    const makeStage2 = () => {
+      const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
+      if ( Math.abs(-3 - chassisPosition.x) < 0.8 && Math.abs(5.5 - chassisPosition.z) < 0.8){
+        setStage2(true);
+      }else{
+        setStage2(false);
+      }
+    }
+
     useFrame(()=>{
       makeFollowCam()
+      makeStage1()
+      makeStage2()
     })
 
     return(

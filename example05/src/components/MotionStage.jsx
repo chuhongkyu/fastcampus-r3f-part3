@@ -60,7 +60,7 @@ export const MotionStage = ({position}) => {
             <group ref={ref} scale={0.3}>
                 <mesh castShadow geometry={nodes.body.geometry} material={materials.Material} position={[0.004, 0.15, 0.065]} scale={[1.957, -1.036, 0.135]} />
                 <Picture nodes={nodes} texture={texture}/>         
-                {stage ? <Html center><div className="information enter"><img src={`/assets/images/enter.webp`} alt="enter"/><p>Enter</p></div></Html>  : null}
+                {stage ? <Html center><div className="information enter"><img src={`/assets/images/enter.png`} alt="enter"/><p>Enter</p></div></Html>  : null}
             </group>
         </group>
     )
