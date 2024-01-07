@@ -29,7 +29,7 @@ export const MotionStage = ({position}) => {
                 position={[x,y,z+1]}
                 rotation-x={-Math.PI/2}
                 initial={{scale: 0.5}}
-                animate={stage ? {
+                animate={!stage ? {
                     opacity: 0.5, 
                     y: [0.05, 0.5, 0.05],
                     transition:{

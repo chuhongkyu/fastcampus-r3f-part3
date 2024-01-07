@@ -73,7 +73,7 @@ const Car = () => {
 
     const makeStage1 = () => {
       const chassisPosition = new Vector3().setFromMatrixPosition(chassisBody.current.matrixWorld);
-      if ( Math.abs(3.1 - chassisPosition.x) < 0.7 && Math.abs(5.1 - chassisPosition.z) < 0.6){
+      if ( Math.abs(3 - chassisPosition.x) < 0.7 && Math.abs(4.9 - chassisPosition.z) < 0.7){
         setStage1(true);
       }else{
         setStage1(false);
