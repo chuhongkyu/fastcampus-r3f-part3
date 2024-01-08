@@ -10,14 +10,6 @@
 - [ ] 물리 엔진 기본 1편 (useBox, useShpere, useCylinder, usePlane )
 - [ ] 물리 엔진 기본 2편 (useTrimesh, useConvexPolyhedron )
 
-## Open API 활용 및 API KEY키 관리
-
-- [ ] 날씨 Open API 소개 및 API KEY 관리 (API, 환경변수)
-- [ ] 도시 날씨 데이터 호출 방법 학습 (fetch, promise)
-- [ ] API 데이터와 3D오브젝트 연동
-- [ ] 그룹 오브젝트 해당 오브젝트만 기억하기 (useMemo)
-- [ ] 비동기 데이터(3D 오브젝트, API 데이터) 로딩 처리하기 (suspense)
-
 ## Cannon 활용 자동차 구현
 
 - [ ] 물리 엔진을 가진 자동차의 바디 만들기 (useBox)
@@ -41,13 +33,15 @@
 - [ ] recoil 전역값 관리 학습
 - [ ] 페이지 진입시 인 모션 만들기
 - [ ] 물체 충돌 UI 팝업 생성
+- [ ] 물체 충돌시 물체 회전 (간판 회전)
 - [ ] 물체 마우스 클릭시 페이지 이동
 - [ ] 특정 지역 진입시 이벤트 발생
 - [ ] 특정 지역 진입시 이벤트2 발생
 
 ## 프로젝트 최적화 알아보기
 
-- [ ] FPS 개념 과 Drei를 통한 status 확인
+- [ ] FPS 개념 과 Drei를 통한 stats 확인
+- [ ] Json 폰트 최적화
 - [ ] Webp로 텍스처 압축
 - [ ] gltf-pipeline Draco 압축을 통한 모델 최적화
 - [ ] gltf => glb로 변환
