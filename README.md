@@ -40,11 +40,11 @@
 
 ## 프로젝트 최적화 알아보기
 
-- [ ] FPS 개념 과 Drei를 통한 stats 확인
+- [ ] FPS 개념과 확인(stats)
+- [ ] 최적화 알아보기 (DrawCall)
 - [ ] Json 폰트 최적화
 - [ ] Webp로 텍스처 압축
-- [ ] gltf-pipeline Draco 압축을 통한 모델 최적화
-- [ ] gltf => glb로 변환
+- [ ] 모델 최적화 (glb, Draco 압축)
 
 
 [완성본 링크] - (https://mr-chu-car-web.netlify.app/)
