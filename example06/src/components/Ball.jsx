@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Html, PositionalAudio, useGLTF } from '@react-three/drei';
+import { Html, useGLTF } from '@react-three/drei';
 import { useSphere } from '@react-three/cannon';
 import { motion } from 'framer-motion-3d';
 
@@ -8,21 +8,19 @@ useGLTF.preload(`/assets/models/ball.glb`);
 export function Ball({ position }) {
   const { nodes, materials } = useGLTF(`/assets/models/ball.glb`);
   const [info, setInfo] = useState(false)
-  const AudioRef = useRef(null)
   const [ref, api] = useSphere(() => ({
     position,
     args: [0.15],
     mass: 1,
     onCollide: handleCollision
-  }));
+  }),useRef(null));
 
   const handleCollision = (e) => {
     const { body } = e;
     // console.log(body)
-    if (body.name == "chassisBody") {
+    if (body.name === "chassisBody") {
       setInfo(true);
       api.velocity.set(0, 3, 0)
-      AudioRef.current.play()
     }
   }
 
@@ -31,7 +29,6 @@ export function Ball({ position }) {
     if (info) {
       timeout = setTimeout(() => {
         setInfo(false)
-        AudioRef.current.stop()
       }, 600);
     }
     return () => clearTimeout(timeout);
@@ -53,13 +50,6 @@ export function Ball({ position }) {
         <mesh castShadow geometry={nodes.beach_ball_red_0_4.geometry} material={materials.yellow} />
       </group>
       {info ? <Html center><div className="information">데구르르...</div></Html>  : null}
-      <PositionalAudio
-        url="/assets/sounds/ball.mp3"
-        distance={0.4}
-        loop={false}
-        rolloffFactor={1}
-        ref={AudioRef}
-        />
     </motion.group>
     
   );

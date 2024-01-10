@@ -8,6 +8,8 @@ import { onResetCar, isStartScene } from "./utils/atom";
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/cannon";
 import ResetBtn from "./components/ResetBtn";
+import { Stats } from "@react-three/drei";
+import DrawCall from "./components/DrawCall";
 
 export function Scene() {
   const onReset = useRecoilValue(onResetCar);
@@ -23,11 +25,12 @@ export function Scene() {
           <Lights/>
           <Physics broadphase="SAP" gravity={[0, -2.6, 0]} allowSleep>
             <Suspense fallback={<Loading/>}>
-              {/* <Stats/> */}
               <Ground />
               {onReset & isStart ? <Car /> : null}
             </Suspense>
           </Physics>
+          {/* <Stats/>
+          <DrawCall/> */}
       </Canvas>
       {isStart && <ResetBtn/>}
     </>

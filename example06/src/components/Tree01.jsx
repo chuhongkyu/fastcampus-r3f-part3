@@ -1,7 +1,7 @@
 import { useBox } from "@react-three/cannon";
-import { Html, useGLTF, PositionalAudio } from "@react-three/drei";
+import { Html, useGLTF} from "@react-three/drei";
 import { motion } from "framer-motion-3d";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 
 useGLTF.preload(`/assets/models/treepack.glb`)
@@ -9,7 +9,7 @@ useGLTF.preload(`/assets/models/treepack.glb`)
 const Tree01 = React.memo(({ position, scale }) => {
     const { nodes, materials } = useGLTF(`/assets/models/treepack.glb`)
     const [info, setInfo] = useState(false)
-    const AudioRef = useRef(null)
+    
     const [ref] = useBox(() => ({
         args: scale,
         position,
@@ -23,7 +23,6 @@ const Tree01 = React.memo(({ position, scale }) => {
         // console.log(body)
         if (body.name === "chassisBody") {
             setInfo(true);
-            AudioRef.current.play()
         }
     };
     
@@ -32,7 +31,6 @@ const Tree01 = React.memo(({ position, scale }) => {
         let timeout;
         if (info) {
             timeout = setTimeout(() => {
-            AudioRef.current.stop()
             setInfo(false)
         }, 500);
         }
@@ -47,13 +45,6 @@ const Tree01 = React.memo(({ position, scale }) => {
             geometry={nodes.tree_0.geometry} material={materials['Material.005']} scale={0}
             castShadow receiveShadow/>
             {info ? <Html center><div className="information">이건 그저 나무야...</div></Html>  : null}
-            <PositionalAudio
-             url="/assets/sounds/wood.mp3"
-             distance={1}
-             loop={false}
-             rolloffFactor={1}
-             ref={AudioRef}
-             />
         </group>
     )
 })
