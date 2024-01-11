@@ -1,16 +1,12 @@
 import { usePlane } from "@react-three/cannon";
 import { useRef } from "react";
 import { Tile } from "./Tile";
-import Tree01 from "./Tree01";
-import Tree02 from "./Tree02";
-import Tree03 from "./Tree03";
 import { MotionStage } from "./MotionStage";
 import { Description } from "./Description"
 import { Arrow } from "./Arrow"
 import { Ball } from "./Ball";
 import Wall from "./Wall";
 import { Banner } from "./Banner";
-import { Brick } from "./Brick";
 import { MotionStage2 } from "./MotionStage2";
 import { RoadSign } from "./Road_sign";
 import { Road } from "./Road";
@@ -18,6 +14,7 @@ import { PlayGround } from "./PlayGround";
 import { Knot } from "./Knot";
 import { MotionStage3 } from "./MotionStage3";
 import { Ball2 } from "./Ball2";
+import AllTree from "./AllTree";
 
 
 export function Ground() {
@@ -45,12 +42,7 @@ export function Ground() {
         <Tile position={[2.5,0,0.4]}/>
         <Tile position={[-2.5,0,0.4]}/>
 
-        <Tree01 position={[-1, 0.4, -0.4]} scale={[0.3, 0.8, 0.3]}/>
-        <Tree01 position={[1, 0.4, -0.4]} scale={[0.3, 0.8, 0.3]} />
-        <Tree02 position={[-3, 0.4, -0.4]} scale={[0.3, 0.8, 0.3]}/>
-        <Tree02 position={[3, 0.4, -0.4]} scale={[0.3, 0.8, 0.3]} />
-        <Tree03 position={[-1, 0.4, 5]} scale={[0.3, 0.8, 0.3]}/>
-        <Tree03 position={[1, 0.4, 5]} scale={[0.3, 0.8, 0.3]} />
+        <AllTree/>
 
         <Description/>
         <Arrow />
@@ -60,17 +52,11 @@ export function Ground() {
 
         <Wall position={[10, 0.1, 0.5]} />
 
-        <Brick position={[-2.7, 2, 2]} />
         <Ball position={[-1, 0.5, 2.3]} />
 
         <Road position={[-8.8,-0.06,1]} scale={0.04} rotation-y={Math.PI/2}/>
         <Road position={[-8.8,-0.06,-10]} scale={0.04} rotation-y={Math.PI/2}/>
-        <Tree01 position={[-6, 0.4,  0]} scale={[0.3, 0.8, 0.3]}/>
-        <Tree01 position={[-6, 0.4, -2]} scale={[0.3, 0.8, 0.3]} />
-        <Tree01 position={[-6, 0.4, -4]} scale={[0.3, 0.8, 0.3]} />
-        <Tree01 position={[-6, 0.4, -6]} scale={[0.3, 0.8, 0.3]} />
-        <Tree01 position={[-6, 0.4, -8]} scale={[0.3, 0.8, 0.3]} />
-        <Tree01 position={[-6, 0.4, -10]} scale={[0.3, 0.8, 0.3]} />
+        
         <Banner position={[1,1,-5]}/>
         
         <RoadSign position={[-0.1, 0.46, 6.5]}/>

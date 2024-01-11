@@ -1,16 +1,12 @@
 import { useBox } from "@react-three/cannon";
-import { Html, useGLTF } from "@react-three/drei";
+import { Html } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import React, { useRef, useState, useEffect } from "react";
 
-useGLTF.preload(`/assets/models/treepack.glb`)
-
-const Tree03 = React.memo(({ position, scale }) => {
-    const { nodes, materials } = useGLTF(`/assets/models/treepack.glb`)
+const Tree03 = ({model, material, position }) => {
     const [info, setInfo] = useState(false)
-
     const [ref] = useBox(() => ({
-        args: scale,
+        args: [0.3, 0.8, 0.3],
         position,
         type: "Static",
         mass: 5,
@@ -37,14 +33,16 @@ const Tree03 = React.memo(({ position, scale }) => {
 
     return(
         <group ref={ref}>
-           <motion.mesh
-            animate={{ scale: [0, 1], y: [-1, -0.4]}}
-            transition={{ delay: 2, duration: 0.3,}}
-            geometry={nodes.tree_2.geometry} material={materials['Material.009']} scale={0}
-            castShadow  />
+            <motion.group
+                animate={{ scale: [0, 1], y: [-1, -0.4]}}
+                transition={{ delay: 2, duration: 0.3,}} 
+                scale={0}
+                >
+                    <model.Tree03 material={material}/>
+                </motion.group>
             {info ? <Html center><div className="information">나무 입니다!</div></Html>  : null}
         </group>
     )
-})
+}
 
 export default Tree03;
