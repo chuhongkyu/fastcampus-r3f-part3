@@ -26,6 +26,12 @@ export function Ground() {
       <Tree position={[-1,0.5,-1]}/>
       <Tree position={[3,0.5,-1]}/>
       <Tree position={[-3,0.5,-1]}/>
+      <Tree position={[-6, 0.5,  0]} />
+      <Tree position={[-6, 0.5, -2]} />
+      <Tree position={[-6, 0.5, -4]} />
+      <Tree position={[-6, 0.5, -6]} />
+      <Tree position={[-6, 0.5, -8]} />
+      <Tree position={[-6, 0.5, -10]}/>
 
       <Ball position={[0,0.2,-2]}/>
 
