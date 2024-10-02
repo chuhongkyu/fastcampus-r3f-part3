@@ -1,0 +1,209 @@
+body, html, #root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* background: rgb(250, 220, 123); */
+  background:
+        linear-gradient(rgb(241, 193, 79), transparent),
+        linear-gradient(to top left, rgb(254, 206, 49), transparent),
+        linear-gradient(to top right, rgb(252, 205, 96), transparent);
+    background-blend-mode: screen;
+}
+
+.information{
+  border-radius: 12px;
+  padding: 5px 20px;
+  height: auto;
+  background: rgba(233, 48, 48, 0.6);
+  color: white;
+  white-space: nowrap;
+  font-size: 22px;
+}
+
+.information.enter{
+  border-radius: 12px;
+  width: 30px;
+  padding: 10px;
+  height: auto;
+  background: white;
+  color: black;
+  white-space: nowrap;
+  display: block;
+  font-size: 13px;
+}
+
+
+.information.enter img{
+  width: 100%;
+  height: auto;
+}
+
+.information.enter p{
+  margin: 0;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: rgb(250, 220, 123);
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+} 
+
+.reset-btn {
+  cursor: pointer;
+  position: fixed;
+  right: max(5vw, 10px);
+  bottom: max(5vw, 10px);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: max(1.2500vw, 16px);
+  border-radius: 50%;
+  border: 2px solid white;
+  overflow: hidden;
+  color: white;
+  transition: 500ms ease-in-out;
+}
+
+.reset-btn p{
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+}
+
+.reset-btn img{
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 500ms ease-in-out;
+}
+
+.reset-btn:hover {
+  transition: 500ms ease-in-out;
+  background: rgba(252, 252, 252, 1);
+}
+
+.reset-btn:hover img{
+  filter: inherit;
+  -webkit-filter: inherit;
+  mix-blend-mode: inherit;
+}
+
+.click-info{
+  border-radius: 50%;
+  padding: 7px;
+  width: 40px;
+  height: 40px;
+  background: orange;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  position: relative;
+}
+
+.click-info span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+  white-space: nowrap;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+.click-info:after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: orange;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -10px;
+  margin-bottom: -8px;
+}
+
+.keybord-container{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  right: max(15vw, 20px);
+  bottom: max(5vw, 10px);
+}
+
+.keybord-container .arrow{
+  width: 60px;
+  height: 60px;
+  background-size: 240px 60px;
+  background-color: #333;
+  opacity: 0.8;
+}
+
+.keybord-container .row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.keybord-container .arrow.arrow-up {
+  background-position: 0 0 !important;
+}
+
+.keybord-container .arrow.arrow-down {
+  background-position: -60px 0 !important;
+}
+
+.keybord-container .arrow.arrow-left {
+  background-position: -120px 0 !important;
+}
+
+.keybord-container .arrow.arrow-right {
+  background-position: -180px 0 !important;
+}
+
+@media screen and (max-width: 1280px) {
+  .keybord-container{
+    display: flex;
+  }
+}
+
+.calls{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 5px 20px;
+  color: white;
+  font-size: 22px;
+}
